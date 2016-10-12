@@ -114,6 +114,7 @@
 		color: color(light-grey);
 		padding: 2px 0 1px 0;
 		line-height: 1;
+		min-height: $inputHeight;
 		.item {
 			color: color(black);
 		}

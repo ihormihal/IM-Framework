@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "imDatatable"
- * im-datatable - v0.2.6 - 2016-04-26
+ * im-datatable - v0.3.0 - 2016-10-12
  * https://github.com/ihormihal/IM-Framework
  * Ihor Mykhalchenko (http://mycode.in.ua/)
  */
@@ -27,8 +27,24 @@ angular.module('im-imgUpload', ['ngFileUpload'])
 		},
 		template: '<div ng-include="contentUrl"></div>',
 		controller: [
-			'$scope', '$element', '$attrs', '$parse', '$timeout', '$http', 'Upload',
-			function($scope, $element, $attrs, $parse, $timeout, $http, Upload) {
+			'$rootScope', '$scope', '$element', '$attrs', '$parse', '$timeout', '$http', 'Upload',
+			function($rootScope, $scope, $element, $attrs, $parse, $timeout, $http, Upload) {
+
+				$scope.serialize = function(obj, prefix) {
+				    var str = [];
+				    for (var p in obj) {
+				        if (obj.hasOwnProperty(p)) {
+				            var k = prefix ? prefix + "[" + p + "]" : p,
+				                v = obj[p];
+				            str.push(typeof v == "object" ?
+				                $rootScope.serialize(v, k) :
+				                encodeURIComponent(k) + "=" + encodeURIComponent(v));
+				        }
+				    }
+				    return str.join("&");
+				};
+
+
 				$scope.files = [];
 				$scope.output = [];
 				$scope.updated = false;
@@ -38,9 +54,9 @@ angular.module('im-imgUpload', ['ngFileUpload'])
 					multiple = true;
 					if($scope.input){
 						$scope.output = angular.fromJson($scope.input);
-						angular.forEach($scope.output, function(src) {
+						angular.forEach($scope.output, function(image) {
 							$scope.output = $scope.input;
-							$scope.files.push({src: src, loaded: true, loading: false, error: false, progress: 0});
+							$scope.files.push({id: image.id, src: image.src, thumb: image.thumb, loaded: true, loading: false, error: false, progress: 0});
 						});
 					}
 				}else{
@@ -59,9 +75,15 @@ angular.module('im-imgUpload', ['ngFileUpload'])
 						if(!file) return false;
 						$scope.files.push(file);
 						file.upload = Upload.upload({
+							method: 'POST',
 							url: $attrs.url,
+							headers: {
+								'Content-Type': 'multipart/form-data'
+							},
+							file: file,
 							data: {
-								file: file
+								'Content-Type': file.type,
+								image: file
 							}
 						});
 
@@ -69,7 +91,9 @@ angular.module('im-imgUpload', ['ngFileUpload'])
 						file.upload.then(function(response) {
 							var res = response.data;
 							if(res.status == 'success'){
+								file.id = res.data.id;
 								file.src = res.data.src;
+								file.thumb = res.data.thumb;
 								file.loaded = true;
 							}else{
 								file.error = res.data.message;
@@ -122,7 +146,10 @@ angular.module('im-imgUpload', ['ngFileUpload'])
 					$http({
 						url: $attrs.delete,
 						method: 'POST',
-						data: $scope.files[index].src
+						data: $scope.serialize({id: $scope.files[index].id, src: $scope.files[index].src}),
+						headers: {
+							'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+						}
 					})
 					.then(function(response) {
 						$scope.data = response.data;

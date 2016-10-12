@@ -3497,7 +3497,8 @@ footer .nav li a {
 .multiselect .selection {
   color: #9e9e9e;
   padding: 2px 0 1px 0;
-  line-height: 1; }
+  line-height: 1;
+  min-height: 36px; }
   .multiselect .selection .item {
     color: #000000; }
 

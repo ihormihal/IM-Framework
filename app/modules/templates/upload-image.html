@@ -15,5 +15,5 @@
 	<img ngf-thumbnail="file" class="thumb" ng-src="{{file.src}}">
 	<img class="popup-img" ng-src="{{file.src}}" >
 	<div class="error" ng-show="file.error">{{file.error}}</div>
-	<div ng-hide="{{locked}}" class="remove deep-orange" ng-click="deleteImg($index)"><i class="fa fa-times-circle"></i></div>
+	<div ng-hide="{{locked}}" class="remove deep-orange" ng-click="deleteImg($index)" title="Удалить фото"></div>
 </div>
