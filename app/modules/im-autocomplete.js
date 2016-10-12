@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.4.1 - 2016-10-12
+ * im-autocomplete - v0.4.2 - 2016-10-12
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
@@ -254,7 +254,7 @@ angular.module('im-autocomplete', [])
 			'</div>'+
 			'<div class="collection">'+
 				'<ul>'+
-					'<li ng-repeat="result in select.results" ng-click="select.choose($index)">{{result.text}}</li>'+
+					'<li ng-repeat="result in select.results track by $index" ng-click="select.choose($index)" ng-class="{\'selected\': select.currentIndex == $index}">{{result.text}}</li>'+
 				'</ul>'+
 			'</div>'+
 		'</div>',
@@ -293,9 +293,41 @@ angular.module('im-autocomplete', [])
 					}
 				}
 
+				//key commands
+				$element[0].onkeyup = function(event) {
+					event.preventDefault();
+					event.stopPropagation()
+					console.log(event.keyCode);
+					//key down
+					if(event.keyCode == 40){
+						
+						if($scope.select.currentIndex < $scope.select.results.length - 1){
+							$scope.select.currentIndex++;
+						}else{
+							$scope.select.currentIndex = 0;
+						}
+					}
+					//key up
+					else if(event.keyCode == 38){
+						//$scope.scrollmode = true;
+						if($scope.select.currentIndex > 0){
+							$scope.select.currentIndex--;
+						}else{
+							$scope.select.currentIndex = $scope.select.results.length - 1;
+						}
+					}else if(event.keyCode == 13){
+						$scope.select.choose($scope.select.currentIndex);
+					}else{
+						//$scope.scrollmode = false;
+					}
+					$scope.$apply();
+					console.log($scope.select.currentIndex);
+				};
+
 				$scope.select = {
 					search: '',
 					value: '',
+					currentIndex: 0,
 					selected: [],
 					results : [],
 					visible: false,
@@ -303,6 +335,7 @@ angular.module('im-autocomplete', [])
 					onfocus: config.onfocus,
 					empty: true,
 					choose: function(index){
+						selectedIndex = index;
 						clearTimeout(blurDelay);
 						$scope.select.selected.push($scope.select.results[index]);
 						$scope.select.search = ''; //clear search field

@@ -2674,7 +2674,7 @@ select, .select, .selection, input[type=text], input[type=email], input[type=pas
     border-width: 1px;
     padding-left: 8px;
     padding-right: 8px; }
-  select.mt, .select.mt, .selection.mt, input[type=text].mt, input[type=email].mt, input[type=password].mt, input[type=date].mt, input[type=number].mt, textarea.mt {
+  select.mt, select.mtr, .select.mt, .select.mtr, .selection.mt, .selection.mtr, input[type=text].mt, input[type=text].mtr, input[type=email].mt, input[type=email].mtr, input[type=password].mt, input[type=password].mtr, input[type=date].mt, input[type=date].mtr, input[type=number].mt, input[type=number].mtr, textarea.mt, textarea.mtr {
     border-color: transparent;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#2196f3), to(#2196f3)), -webkit-gradient(linear, left top, left bottom, from(#d7d7d7), to(#d7d7d7));
     background-image: -webkit-linear-gradient(#2196f3, #2196f3), -webkit-linear-gradient(#d7d7d7, #d7d7d7);
@@ -2684,7 +2684,7 @@ select, .select, .selection, input[type=text], input[type=email], input[type=pas
     background-position: center bottom, center 100%;
     background-size: 0 2px, 100% 1px;
     -webkit-background-size: 0 2px, 100% 1px; }
-    select.mt:focus, .select.mt:focus, .selection.mt:focus, input[type=text].mt:focus, input[type=email].mt:focus, input[type=password].mt:focus, input[type=date].mt:focus, input[type=number].mt:focus, textarea.mt:focus {
+    select.mt:focus, select.mtr:focus, .select.mt:focus, .select.mtr:focus, .selection.mt:focus, .selection.mtr:focus, input[type=text].mt:focus, input[type=text].mtr:focus, input[type=email].mt:focus, input[type=email].mtr:focus, input[type=password].mt:focus, input[type=password].mtr:focus, input[type=date].mt:focus, input[type=date].mtr:focus, input[type=number].mt:focus, input[type=number].mtr:focus, textarea.mt:focus, textarea.mtr:focus {
       outline: none;
       -webkit-transition: background 0.3s ease-out;
       -moz-transition: background 0.3s ease-out;

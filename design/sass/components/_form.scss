@@ -100,7 +100,7 @@ select, .select, .selection, input[type=text], input[type=email], input[type=pas
 		padding-right: 8*$pt;
 	}
 	//animated underline
-	&.mt {
+	&.mt, &.mtr {
 		border-color: transparent;
 		@include linear-gradient-double(color(blue), color(light));
 		background-repeat: no-repeat;
