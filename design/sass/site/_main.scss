@@ -1,0 +1,31 @@
+body {
+	min-height: 100vh;
+	flex-direction: column;
+	background-color: #f5f5f5;
+	@include flexbox();
+	main {
+		flex: 1 0 auto;
+	}
+}
+a {
+	color: color(orange);
+	text-decoration: none;
+}
+p {
+	color: color(grey);
+}
+ul {
+	text-align: left;
+}
+
+.grid-view {
+	.summary {
+		padding: 8px 0;
+	}
+}
+
+.datatable {
+	th, td {
+		padding: 16px;
+	}
+}
