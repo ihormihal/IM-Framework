@@ -60,6 +60,13 @@ $colors: (
 
 $colorPrimary: #2196f3; //blue
 
+$colorFacebook: #3b5998;
+$colorInstagram: #e1306c;
+$colorVkontakte: #45668e;
+$colorLinkedIn: #0077b5;
+$colorTwitter: #1da1f2;
+$colorFoursquare: #f94877;
+
 @function color($color) {
 	@return map-get($colors, '#{$color}');
 }

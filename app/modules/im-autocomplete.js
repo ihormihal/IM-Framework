@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.4.2 - 2016-10-12
+ * im-autocomplete - v0.4.3 - 2016-10-12
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
@@ -17,15 +17,16 @@ angular.module('im-autocomplete', [])
 			name: '@',
 			placeholder: '@',
 			class: '@',
+			url: '@',
 			ngModel: '=',
 			output: '=',
 			updated: '=',
 			disabled: '=',
 			onChangeClear: '='
 		},
-		template: '<div class="dropdown dropdown-select im-autocomplete-single" ng-class="{\'focus in\': select.visible}">'+
+		template: '<div class="dropdown dropdown-select im-autocomplete-single" ng-class="{\'focus in\': select.visible, \'loading\': loading}">'+
 			'<input ng-model="select.selected" name="{{name}}" type="hidden">'+
-			'<input autocomplete="off" ng-disabled="disabled" ng-model="select.search" class="full {{class}}" ng-class="{\'select\': select.empty, \'loading\': loading}" type="text" placeholder="{{placeholder}}">'+
+			'<input autocomplete="off" ng-disabled="disabled" ng-model="select.search" class="full {{class}}" ng-class="{\'select\': select.empty}" type="text" placeholder="{{placeholder}}">'+
 			'<div class="collection">'+
 				'<ul>'+
 					'<li ng-repeat="result in select.results" ng-class="{\'selected\': result.value == select.selected.value}" ng-click="select.choose($index)">{{result.text}}</li>'+
@@ -176,7 +177,7 @@ angular.module('im-autocomplete', [])
 					}
 
 					val = val || '';
-					var getUrl = $attrs.url;
+					var getUrl = $scope.url;
 					if(getUrl.indexOf('?') !== -1){
 						getUrl += '&search='+val;
 					}else{
@@ -197,6 +198,10 @@ angular.module('im-autocomplete', [])
 						console.log(error);
 					});
 				}
+
+				$scope.$watch('url', function(){
+					alreadyLoaded = false;
+				});
 
 				$scope.$watch('select.search', function(val){
 					if($scope.scrollmode){
@@ -242,6 +247,7 @@ angular.module('im-autocomplete', [])
 			name: '@',
 			placeholder: '@',
 			class: '@',
+			url: '@',
 			output: '=',
 			ngModel: '=',
 			updated: '='
@@ -414,7 +420,7 @@ angular.module('im-autocomplete', [])
 					}
 
 					val = val || '';
-					var getUrl = $attrs.url;
+					var getUrl = $scope.url;
 					if(getUrl.indexOf('?') !== -1){
 						getUrl += '&search='+val;
 					}else{
@@ -434,6 +440,10 @@ angular.module('im-autocomplete', [])
 						console.log(error);
 					});
 				};
+
+				$scope.$watch('url', function(){
+					alreadyLoaded = false;
+				});
 
 				$scope.addCustom = function(val){
 					if(val == config.customChar){

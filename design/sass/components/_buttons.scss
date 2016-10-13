@@ -148,19 +148,19 @@ button.btn, input[type="button"].btn, input[type="submit"].btn {
 	background-color: $colorPrimary;
 	color: color(white);
 	&:hover, &.active {
-		background-color: darken(color(blue),5%);
+		background-color: darken($colorPrimary,5%);
 	}
 	&.btn-tr {
-		color: color(blue);
-		border-color: color(blue);
+		color: $colorPrimary;
+		border-color: $colorPrimary;
 		background-color: transparent;
 		&:hover, &.active {
 			color: color(white);
-			background-color: color(blue);
+			background-color: $colorPrimary;
 		}
 	}
 	&.btn-flat {
-		color: color(blue);
+		color: $colorPrimary;
 	}
 }
 .btn-success {

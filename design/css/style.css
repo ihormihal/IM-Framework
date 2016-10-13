@@ -2971,7 +2971,7 @@ textarea {
     .radio label input[disabled] + .circle {
       cursor: default;
       cursor: not-allowed;
-      border-color: #7a7a7a; }
+      border-color: #2196f3; }
     .radio label input:checked + .circle {
       background-color: #ffffff; }
     .radio label input:checked + .circle:after {
@@ -3209,7 +3209,6 @@ header .nav-inline {
   header .nav-inline > li {
     line-height: 50px; }
     header .nav-inline > li > a:not(.btn) {
-      color: #222222;
       line-height: 50px;
       padding: 0 24px; }
       header .nav-inline > li > a:not(.btn) .ink {

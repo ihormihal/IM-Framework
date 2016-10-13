@@ -58,7 +58,6 @@ header {
 		> li {
 			line-height: $navbar-height;
 			> a:not(.btn) {
-				color: color(darken);
 				line-height: $navbar-height;
 				padding: 0 24*$pt;
 				.ink {
