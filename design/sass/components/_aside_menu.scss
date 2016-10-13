@@ -9,7 +9,7 @@
 			font-size: 14px;
 			line-height: 18px;
 			clear: both;
-			
+
 			a {
 				display: block;
 				position: relative;
@@ -18,7 +18,7 @@
 				border-left: 4px solid color(darken);
 				border-bottom: 1px solid color(grey);
 				padding-right: 32px;
-				
+
 				.icon {
 					display: block;
 					width: 50px;
@@ -34,8 +34,8 @@
 					padding-left: 50px;
 					text-transform: uppercase;
 				}
-				
-				
+
+
 				@include transition(background-color 0.25s ease, border-color 0.25s ease);
 
 
@@ -69,7 +69,7 @@
 					display: block;
 				}
 			}
-			
+
 			ul {
 				display: none;
 				border-bottom: 1px solid color(grey);
