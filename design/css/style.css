@@ -3960,3 +3960,6 @@ ul {
 
 .datatable th, .datatable td {
   padding: 16px; }
+
+header .nav-inline > li > a:not(.btn) {
+  color: #000000; }

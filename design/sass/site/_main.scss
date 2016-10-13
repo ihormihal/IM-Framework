@@ -29,3 +29,7 @@ ul {
 		padding: 16px;
 	}
 }
+
+header .nav-inline > li > a:not(.btn) {
+	color: color(black);
+}
