@@ -30,7 +30,8 @@
         </section>
     </header>
     <main ng-controller="mainController">
-
+      
+      <form action="index.php" method="post">
       <section>
         <div class="container pt2 pb2">
           <div class="row">
@@ -113,6 +114,7 @@
           </div>
         </div>
       </section>
+      </form>
 
     </main>
 

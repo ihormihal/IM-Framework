@@ -1,10 +1,19 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.4.3 - 2016-10-12
+ * im-autocomplete - v0.4.4 - 2016-10-13
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
  */
+
+var submitDelay = null;
+document.onsubmit = function(e){
+	event.preventDefault();
+	function submit(){
+		e.target.submit();
+	}
+	submitDelay = setTimeout(submit, 100);
+};
 
 angular.module('im-autocomplete', [])
 
@@ -100,7 +109,7 @@ angular.module('im-autocomplete', [])
 				//key commands
 				$element[0].onkeyup = function(event) {
 					event.preventDefault();
-					event.stopPropagation()
+					event.stopPropagation();
 					console.log(event.keyCode);
 					//key down
 					if(event.keyCode == 40){
@@ -127,6 +136,7 @@ angular.module('im-autocomplete', [])
 						$scope.select.selected = $scope.select.results[selectedIndex];
 						$scope.updateSelected(true);
 					}else if(event.keyCode == 13){
+						clearTimeout(submitDelay);
 						textInput.blur();
 					}else{
 						$scope.scrollmode = false;
@@ -322,6 +332,7 @@ angular.module('im-autocomplete', [])
 							$scope.select.currentIndex = $scope.select.results.length - 1;
 						}
 					}else if(event.keyCode == 13){
+						clearTimeout(submitDelay);
 						$scope.select.choose($scope.select.currentIndex);
 					}else{
 						//$scope.scrollmode = false;
