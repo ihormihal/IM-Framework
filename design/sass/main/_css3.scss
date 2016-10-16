@@ -38,6 +38,52 @@
   transition-#{$property}: none;
 }
 
+@mixin transition-delay($time) {
+  -moz-transition-delay: $time;
+  -o-transition-delay: $time;
+  -webkit-transition-delay: $time;
+  transition-delay: $time;
+}
+
+@mixin transition-duration($time) {
+  -moz-transition-duration: $time;
+  -o-transition-duration: $time;
+  -webkit-transition-duration: $time;
+  transition-duration: $time;
+}
+
+@mixin transition-property($property) {
+  -moz-transition-property: $property;
+  -o-transition-property: $property;
+  -webkit-transition-property: $property;
+  transition-property: $property;
+}
+
+@mixin animation-duration($time) {
+  -moz-animation-duration: $time;
+  -o-animation-duration: $time;
+  -webkit-animation-duration: $time;
+  animation-duration: $time;
+}
+
+@mixin animation-iteration-count($value) {
+  -moz-animation-iteration-count: $value;
+  -webkit-animation-iteration-count: $value;
+  animation-iteration-count: $value;
+}
+
+@mixin animation-name($value) {
+  -moz-animation-name: $value;
+  -webkit-animation-name: $value;
+  animation-name: $value;
+}
+
+@mixin animation-timing-function($value) {
+  -moz-animation-timing-function: $value;
+  -webkit-animation-timing-function: $value;
+  animation-timing-function: $value;
+}
+
 @mixin background-size($args...){
   background-size: $args;
   -webkit-background-size: $args;

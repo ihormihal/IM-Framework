@@ -2576,6 +2576,93 @@ button.btn, input[type="button"].btn, input[type="submit"].btn {
   -webkit-transform: translate(0, 50%);
   transform: translate(0, 50%); }
 
+.btn-loading:not(.disabled):before {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -9px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid #fff;
+  border-left-color: transparent;
+  border-radius: 50%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -ms-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -moz-animation-name: rotate;
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+  -moz-animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear; }
+
+.btn-loading:not(.disabled):after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 0px;
+  -moz-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+  -moz-transition-duration: 0.75s;
+  -o-transition-duration: 0.75s;
+  -webkit-transition-duration: 0.75s;
+  transition-duration: 0.75s;
+  -moz-transition-property: width;
+  -o-transition-property: width;
+  -webkit-transition-property: width;
+  transition-property: width; }
+
+.btn-loading:not(.disabled).load {
+  pointer-events: none;
+  cursor: not-allowed; }
+  .btn-loading:not(.disabled).load:not(.expand) {
+    text-align: left; }
+  .btn-loading:not(.disabled).load:before {
+    -moz-transition-delay: 0.5s;
+    -o-transition-delay: 0.5s;
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  .btn-loading:not(.disabled).load:after {
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    width: 24px; }
+
+@keyframes rotate {
+  0% {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
 .form-group {
   margin-bottom: 16px; }
   .form-group .help-block {

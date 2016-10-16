@@ -36,6 +36,8 @@
 			<a href="javascript:void(0)" class="btn btn-mt btn-success">Button</a>
 			<a href="javascript:void(0)" class="btn btn-mt btn-warning">Button</a>
 			<a href="javascript:void(0)" class="btn btn-mt btn-danger">Button</a>
+
+			<a href="javascript:void(0)" class="btn btn-mt btn-primary btn-loading load">Loading</a>
 		</div>
 
 		<h3>Flat Buttons</h3>
