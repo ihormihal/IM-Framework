@@ -1,4 +1,4 @@
-angular.module('app', ['im-dataTable', 'im-imgUpload', 'im-progress', 'im-autocomplete'])
+angular.module('app', ['im-dataTable', 'im-imgUpload', 'im-progress', 'im-autocomplete', 'im-carousel'])
 
 .config([function () {
 
@@ -25,6 +25,32 @@ angular.module('app', ['im-dataTable', 'im-imgUpload', 'im-progress', 'im-autoco
 		{
 			value: 'FR',
 			text: 'France'
+		}
+	];
+	$scope.carousel = [
+		{
+			image: 'design/images/400x225.jpg',
+			title: 'Some Image'
+		},
+		{
+			image: 'design/images/400x225.jpg',
+			title: 'Some Image'
+		},
+		{
+			image: 'design/images/400x225.jpg',
+			title: 'Some Image'
+		},
+		{
+			image: 'design/images/400x225.jpg',
+			title: 'Some Image'
+		},
+		{
+			image: 'design/images/400x225.jpg',
+			title: 'Some Image'
+		},
+		{
+			image: 'design/images/400x225.jpg',
+			title: 'Some Image'
 		}
 	];
 }])

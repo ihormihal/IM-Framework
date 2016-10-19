@@ -2677,6 +2677,12 @@ button.btn, input[type="button"].btn, input[type="submit"].btn {
   .form-group.has-error .help-block {
     padding: 8px 0;
     color: #f44336; }
+  .form-group.has-error .mt, .form-group.has-error .mtr {
+    border-color: transparent !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f44336), to(#f44336)), -webkit-gradient(linear, left top, left bottom, from(#f44336), to(#f44336));
+    background-image: -webkit-linear-gradient(#f44336, #f44336), -webkit-linear-gradient(#f44336, #f44336);
+    background-image: -o-linear-gradient(#f44336, #f44336), -o-linear-gradient(#f44336, #f44336);
+    background-image: linear-gradient(#f44336, #f44336), linear-gradient(#f44336, #f44336); }
   .form-group.form-group-inline > * {
     margin-right: 16px;
     vertical-align: bottom; }
@@ -3925,6 +3931,51 @@ footer .nav li a {
   .image-preview-box.small {
     height: 120px;
     line-height: 120px; }
+
+.im-carousel {
+  position: relative;
+  overflow: hidden;
+  height: 225px;
+  background-color: #ccc; }
+  .im-carousel .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 225px;
+    float: left; }
+  .im-carousel .carousel-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100px; }
+    .im-carousel .carousel-content .item {
+      float: left;
+      text-align: center; }
+      .im-carousel .carousel-content .item img {
+        max-width: 100%;
+        height: auto;
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none; }
+    .im-carousel .carousel-content.static {
+      -webkit-transition: left 0.3s ease;
+      -moz-transition: left 0.3s ease;
+      -ms-transition: left 0.3s ease;
+      -o-transition: left 0.3s ease;
+      transition: left 0.3s ease; }
+  .im-carousel .nav {
+    height: 100px;
+    width: 50px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+    font-size: 20px; }
+    .im-carousel .nav.disabled {
+      color: rgba(255, 255, 255, 0.4); }
 
 html.admin, html.admin body {
   height: 100%;

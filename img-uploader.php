@@ -59,7 +59,7 @@
             <div class="row">
               <div class="col-md-6">
                 <h2 class="mb1">Single Image Upload<a class="show-code" href="#single-img-upload-code"> <i class="fa fa-code"></i></a></h2>
-               <!--  <upload-images
+                <!-- <upload-images
                   template="app/modules/templates/upload-image.html"
                   url="server/images-controller/upload.php"
                   delete="server/images-controller/delete.php"

@@ -1,16 +1,16 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.4.4 - 2016-10-13
+ * im-autocomplete - v0.4.7 - 2016-10-19
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
  */
 
 var submitDelay = null;
-document.onsubmit = function(e){
+document.onsubmit = function(event){
 	event.preventDefault();
 	function submit(){
-		e.target.submit();
+		event.target.submit();
 	}
 	submitDelay = setTimeout(submit, 100);
 };
@@ -47,6 +47,8 @@ angular.module('im-autocomplete', [])
 			function($scope, $element, $attrs, $http) {
 
 				var input = $element[0].getElementsByTagName('input')[0];
+				var collection = $element[0].getElementsByClassName('collection')[0];
+				var list = $element[0].getElementsByTagName('ul')[0];
 
 
 				var config = {
@@ -110,7 +112,7 @@ angular.module('im-autocomplete', [])
 				$element[0].onkeyup = function(event) {
 					event.preventDefault();
 					event.stopPropagation();
-					console.log(event.keyCode);
+					//console.log(event.keyCode);
 					//key down
 					if(event.keyCode == 40){
 						
@@ -123,7 +125,13 @@ angular.module('im-autocomplete', [])
 						$scope.scrollmode = true;
 						$scope.select.selected = $scope.select.results[selectedIndex];
 						$scope.updateSelected(true);
-						
+
+						var li = collection.getElementsByTagName('li')[selectedIndex];
+						if(li.offsetTop > collection.offsetHeight || list.scrollTop > li.offsetTop){
+							list.scrollTop = li.offsetTop;
+
+						}
+		
 					}
 					//key up
 					else if(event.keyCode == 38){
@@ -135,6 +143,14 @@ angular.module('im-autocomplete', [])
 						}
 						$scope.select.selected = $scope.select.results[selectedIndex];
 						$scope.updateSelected(true);
+
+						var li = collection.getElementsByTagName('li')[selectedIndex];
+						if(li.offsetTop > collection.offsetHeight || list.scrollTop > li.offsetTop){
+							list.scrollTop = li.offsetTop;
+
+						}
+
+
 					}else if(event.keyCode == 13){
 						clearTimeout(submitDelay);
 						textInput.blur();
@@ -156,6 +172,11 @@ angular.module('im-autocomplete', [])
 
 				$scope.$watch('ngModel', function(val){
 					if(val){
+						if(!val.hasOwnProperty('type')){
+							val.type = 'autocomplete';
+							$scope.ngModel = val;
+						}
+						val.type = 'autocomplete';
 						$scope.select.selected = val;
 						if($scope.select.selected.text){
 							$scope.select.search = $scope.select.selected.text;
@@ -280,6 +301,8 @@ angular.module('im-autocomplete', [])
 
 				var input = $element[0].getElementsByTagName('input')[0]; //hidden
 				var textInput = $element[0].getElementsByTagName('input')[1]; //for search
+				var collection = $element[0].getElementsByClassName('collection')[0];
+				var list = $element[0].getElementsByTagName('ul')[0];
 
 				var config = {
 					onfocus: false,
@@ -316,11 +339,16 @@ angular.module('im-autocomplete', [])
 					console.log(event.keyCode);
 					//key down
 					if(event.keyCode == 40){
-						
 						if($scope.select.currentIndex < $scope.select.results.length - 1){
 							$scope.select.currentIndex++;
 						}else{
 							$scope.select.currentIndex = 0;
+						}
+
+						var li = collection.getElementsByTagName('li')[$scope.select.currentIndex];
+						if(li.offsetTop > collection.offsetHeight || list.scrollTop > li.offsetTop){
+							list.scrollTop = li.offsetTop;
+
 						}
 					}
 					//key up
@@ -331,6 +359,13 @@ angular.module('im-autocomplete', [])
 						}else{
 							$scope.select.currentIndex = $scope.select.results.length - 1;
 						}
+
+						var li = collection.getElementsByTagName('li')[$scope.select.currentIndex];
+						if(li.offsetTop > collection.offsetHeight || list.scrollTop > li.offsetTop){
+							list.scrollTop = li.offsetTop;
+
+						}
+						
 					}else if(event.keyCode == 13){
 						clearTimeout(submitDelay);
 						$scope.select.choose($scope.select.currentIndex);
@@ -354,7 +389,9 @@ angular.module('im-autocomplete', [])
 					choose: function(index){
 						selectedIndex = index;
 						clearTimeout(blurDelay);
-						$scope.select.selected.push($scope.select.results[index]);
+						var selected = $scope.select.results[index];
+						selected.type = 'autocomplete';
+						$scope.select.selected.push(selected);
 						$scope.select.search = ''; //clear search field
 						updateSelected(true);
 						$scope.select.visible = false;
@@ -368,11 +405,17 @@ angular.module('im-autocomplete', [])
 
 				//initialize
 				if($attrs.value){
-					$scope.select.selected = angular.fromJson($attrs.value);
-					//$scope.output = $scope.select.selected;
+					var initValues = angular.fromJson($attrs.value);
+					for (var i = 0; i < initValues.length; i++) {
+						initValues[i].type = 'autocomplete';
+					}
+					$scope.select.selected = initValues;
 				}
 				$scope.$watch('ngModel', function(val){
 					if(val){
+						for (var i = 0; i < val.length; i++) {
+							val[i].type = 'autocomplete';
+						}
 						$scope.select.selected = val;
 						//$scope.output = $scope.select.selected;
 					}
@@ -460,7 +503,7 @@ angular.module('im-autocomplete', [])
 					if(val == config.customChar){
 						$scope.select.search = '';
 					}else if(val.length > 1 && val.substr(val.length - 1) == config.customChar){
-						$scope.select.selected.push({text: val.substring(0, val.length - 1)});
+						$scope.select.selected.push({text: val.substring(0, val.length - 1), type: 'autocomplete'});
 						$scope.select.search = '';
 					}
 				};

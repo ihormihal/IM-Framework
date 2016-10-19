@@ -4,4 +4,5 @@
 <script src="app/modules/im-img-uploader.js" type="text/javascript"></script>
 <script src="app/modules/im-progress.js" type="text/javascript"></script>
 <script src="app/modules/im-autocomplete.js" type="text/javascript"></script>
+<script src="app/modules/im-carousel.js" type="text/javascript"></script>
 <script src="app/app.js" type="text/javascript"></script>
