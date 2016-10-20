@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.4.8 - 2016-10-20
+ * im-autocomplete - v0.4.10 - 2016-10-20
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
@@ -66,14 +66,12 @@ angular.module('im-autocomplete', [])
 
 				$scope.updated = false;
 				$scope.scrollmode = false;
-				var selectedIndex = 0;
 
 				var textInput = $element[0].getElementsByTagName('input')[1];
 
 
 				function hideSelect() {
 					$scope.select.visible = false;
-					selectedIndex = 0;
 					$scope.$apply();
 				};
 				var hideSelectDelay;
@@ -96,8 +94,9 @@ angular.module('im-autocomplete', [])
 					results : [],
 					visible: false,
 					empty: config.onfocus,
+					currentIndex: -1,
 					choose: function(index){
-						selectedIndex = index;
+						$scope.select.currentIndex = index;
 						$scope.select.selected = $scope.select.results[index];
 
 						$scope.updateSelected();
@@ -112,48 +111,52 @@ angular.module('im-autocomplete', [])
 				$element[0].onkeyup = function(event) {
 					event.preventDefault();
 					event.stopPropagation();
-					//console.log(event.keyCode);
 					//key down
 					if(event.keyCode == 40){
-						
-						if(selectedIndex < $scope.select.results.length - 1){
-							selectedIndex++;
-						}else{
-							selectedIndex = 0;
-						}
-
 						$scope.scrollmode = true;
-						$scope.select.selected = $scope.select.results[selectedIndex];
-						$scope.updateSelected(true);
 
-						var li = collection.getElementsByTagName('li')[selectedIndex];
+						if($scope.select.currentIndex >= $scope.select.results.length - 1){
+							$scope.select.currentIndex = 0;
+						}else{
+							$scope.select.currentIndex++;
+						}
+						
+						var li = collection.getElementsByTagName('li')[$scope.select.currentIndex];
 						if(li.offsetTop > collection.offsetHeight || list.scrollTop > li.offsetTop){
 							list.scrollTop = li.offsetTop;
 
 						}
-		
+
+						
+						$scope.select.selected = $scope.select.results[$scope.select.currentIndex];
+						$scope.updateSelected(true);
+						
 					}
 					//key up
 					else if(event.keyCode == 38){
 						$scope.scrollmode = true;
-						if(selectedIndex > 0){
-							selectedIndex--;
-						}else{
-							selectedIndex = $scope.select.results.length - 1;
-						}
-						$scope.select.selected = $scope.select.results[selectedIndex];
-						$scope.updateSelected(true);
 
-						var li = collection.getElementsByTagName('li')[selectedIndex];
+						if($scope.select.currentIndex == 0){
+							$scope.select.currentIndex = $scope.select.results.length - 1;
+						}else{
+							$scope.select.currentIndex--;
+						}
+
+						var li = collection.getElementsByTagName('li')[$scope.select.currentIndex];
 						if(li.offsetTop > collection.offsetHeight || list.scrollTop > li.offsetTop){
 							list.scrollTop = li.offsetTop;
 
 						}
 
+						$scope.select.selected = $scope.select.results[$scope.select.currentIndex];
+						$scope.updateSelected(true);
 
 					}else if(event.keyCode == 13){
-						clearTimeout(submitDelay);
-						textInput.blur();
+						$scope.scrollmode = false;
+						if($scope.select.visible){
+							clearTimeout(submitDelay);
+							textInput.blur();
+						}
 					}else{
 						$scope.scrollmode = false;
 					}
@@ -339,10 +342,11 @@ angular.module('im-autocomplete', [])
 					console.log(event.keyCode);
 					//key down
 					if(event.keyCode == 40){
-						if($scope.select.currentIndex < $scope.select.results.length - 1){
-							$scope.select.currentIndex++;
-						}else{
+
+						if($scope.select.currentIndex >= $scope.select.results.length - 1){
 							$scope.select.currentIndex = 0;
+						}else{
+							$scope.select.currentIndex++;
 						}
 
 						var li = collection.getElementsByTagName('li')[$scope.select.currentIndex];
@@ -350,14 +354,15 @@ angular.module('im-autocomplete', [])
 							list.scrollTop = li.offsetTop;
 
 						}
+
 					}
 					//key up
 					else if(event.keyCode == 38){
-						//$scope.scrollmode = true;
-						if($scope.select.currentIndex > 0){
-							$scope.select.currentIndex--;
-						}else{
+
+						if($scope.select.currentIndex == 0){
 							$scope.select.currentIndex = $scope.select.results.length - 1;
+						}else{
+							$scope.select.currentIndex--;
 						}
 
 						var li = collection.getElementsByTagName('li')[$scope.select.currentIndex];
@@ -367,19 +372,19 @@ angular.module('im-autocomplete', [])
 						}
 						
 					}else if(event.keyCode == 13){
-						clearTimeout(submitDelay);
-						$scope.select.choose($scope.select.currentIndex);
-					}else{
-						//$scope.scrollmode = false;
+						if($scope.select.visible){
+							clearTimeout(submitDelay);
+							$scope.select.choose($scope.select.currentIndex);
+						}
 					}
 					$scope.$apply();
-					console.log($scope.select.currentIndex);
+
 				};
 
 				$scope.select = {
 					search: '',
 					value: '',
-					currentIndex: 0,
+					currentIndex: -1,
 					selected: [],
 					results : [],
 					visible: false,
@@ -387,10 +392,11 @@ angular.module('im-autocomplete', [])
 					onfocus: config.onfocus,
 					empty: true,
 					choose: function(index){
-						selectedIndex = index;
+						$scope.select.currentIndex = index;
 						clearTimeout(blurDelay);
 						var selected = $scope.select.results[index];
 						selected.type = 'autocomplete';
+
 						$scope.select.selected.push(selected);
 						$scope.select.search = ''; //clear search field
 						updateSelected(true);
@@ -440,8 +446,7 @@ angular.module('im-autocomplete', [])
 				};
 
 				function updateSelected(showResults){
-					console.log(showResults);
-					//split selected from results list
+					//remove selected from results list
 					var temp = [];
 					for(var i = 0; i < $scope.select.results.length; i++){
 						var exists = false;
@@ -458,12 +463,6 @@ angular.module('im-autocomplete', [])
 					if($scope.select.results.length && showResults){
 						$scope.select.visible = true;
 					}
-					//splitting end
-
-					// $scope.output = $scope.select.selected;
-					// $scope.ngModel = $scope.output;
-					// $scope.select.value = angular.toJson($scope.select.selected);
-					// $scope.updated = true;
 				};
 
 				var alreadyLoaded = false;

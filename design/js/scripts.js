@@ -93,6 +93,9 @@ $(function() {
 		}
 	});
 
+	$('.owl-carousel').imOwlCarousel();
+	$('.owl-slider').imOwlCarousel({type: 'slider'});
+
 	/* CountUp Plugin */
 	/*
 	$('.counter > span').each(function(){

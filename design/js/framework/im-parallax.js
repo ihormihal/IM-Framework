@@ -1,6 +1,6 @@
 /*
  * Universal Single-Layer Parallax
- * parallax - v0.1.1 - 2016-03-01
+ * parallax - v0.1.2 - 2016-10-20
  * https://github.com/ihormihal/IM-Framework
  * Ihor Mykhalchenko (http://mycode.in.ua)
  */
@@ -9,11 +9,13 @@
 (function($) {
 	$.fn.imParallax = function(options){
 		var settings = $.extend({
-			speed: 0.8, // 0 -> 1 : slowly, 1 -> 2 : falster
+			speed: 0.8, // 0 -> 1 : slowly, 1 -> 2 : faster
 			minWidth : 992
 		}, options);
 
 		var that = this;
+
+		var needReload = true;
 
 		var main = function(){
 
@@ -82,10 +84,13 @@
 
 						//run if only parallax is visible
 						if(topBorderVisible || bottomBorderVisible || needReload){
+							item.parallax.style.display = 'block';
 							item.parallax.style.transform = originScroll;
 							item.parallax.style['-webkit-transform'] = originScroll;
 							item.image.style.transform = parallaxScroll;
 							item.image.style['-webkit-transform'] = parallaxScroll;
+						}else{
+							item.parallax.style.display = 'none';
 						}
 
 					};
@@ -101,11 +106,10 @@
 			needReload = false;
 		};
 
-		var needReload = true;
-
 		main();
 
 		$(window).resize(function() {
+			console.log('resize');
 			needReload = true;
 			main();
 		});

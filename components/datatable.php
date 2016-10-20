@@ -31,7 +31,7 @@
           <td data-th="Continent"><?php echo $countries[$i]['continent']; ?></td>
           <td data-th="Capital"><?php echo $countries[$i]['capital']; ?></td>
           <td data-th="Phone code"><?php echo $countries[$i]['phone']; ?></td>
-          <td data-th="Ind. Date"><?php echo $countries[$i]['date']; ?></td>
+          <td data-th="Ind. Date"><?php if(array_key_exists('date', $countries[$i])) echo $countries[$i]['date']; ?></td>
           <td data-th="Currency code"><?php echo $countries[$i]['currency']; ?></td>
         </tr>
         <?php endfor ?>

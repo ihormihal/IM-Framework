@@ -3,7 +3,7 @@
   <div class="container">
     <h2 class="text-center up h2 mb1">OWL Slider <a class="show-code" href="#owl-slider-code"><i class="fa fa-code"></i></a></h2>
   </div>
-  <div class="slider" data-navigation="true" data-pagination="true">
+  <div class="slider owl-slider" data-nav="true" data-pag="true" data-loop="true">
     <div class="item">
       <img class="background" src="design/images/background.jpg" alt="">
       <div class="container white pt6 pb6 animated" data-animated="fadeInDown">
@@ -30,7 +30,7 @@
 <div class="hidden" id="owl-slider-code">
 <?php
 $code =
-'<div class="slider" data-navigation="true" data-pagination="true">
+'<div class="slider owl-slider" data-nav="true" data-pag="true">
   <!-- repeat -->
   <div class="item">
     <img class="background" src="design/images/background.jpg" alt="">

@@ -6,9 +6,9 @@
 <section class="section pt2 pb2 dark-bg">
   <div class="container">
     <div class="row"><!-- important -->
-      <div class="carousel" data-navigation="true" data-pagination="true" data-scrollPerPage="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
+      <div class="carousel owl-carousel" data-nav="true" data-pag="true" data-page="true" data-xl="5" data-md="5" data-sm="5" data-xs="5">
         <?php for ($i = 1; $i <= 12; $i++): ?>
-        <div class="box">
+        <div class="box owl-item">
           <div class="card-image shadow-2 shadow-3-hover">
             <a href="javascript:void(0)">
               <div class="image hover-scale">
@@ -29,9 +29,9 @@
 <div class="hidden" id="carousel1-code">
 <?php
 $code =
-'<div class="carousel" data-navigation="true" data-pagination="true" data-scrollPerPage="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
+'<div class="carousel owl-carousel" data-nav="true" data-pag="true" data-page="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
   <!-- repeat -->
-  <div class="box">
+  <div class="box owl-item">
     <div class="card-image shadow-2 shadow-3-hover">
       <a href="javascript:void(0)">
         <div class="image hover-scale">
@@ -55,9 +55,9 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
   </div>
   <div class="container">
     <div class="row"><!-- important -->
-      <div class="carousel nav-dark aside-nav" data-navigation="true" data-pagination="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
+      <div class="carousel owl-carousel nav-dark aside-nav" data-nav="true" data-pag="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
         <?php for ($i = 1; $i <= 12; $i++): ?>
-        <div class="box">
+        <div class="box owl-item">
           <div class="card-image shadow-2 shadow-3-hover">
             <a href="javascript:void(0)">
               <div class="image hover-scale">
@@ -78,9 +78,9 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
 <div class="hidden" id="carousel2-code">
 <?php
 $code =
-'<div class="carousel nav-dark aside-nav" data-navigation="true" data-pagination="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
+'<div class="carousel owl-carousel nav-dark aside-nav" data-nav="true" data-pag="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
   <!-- repeat -->
-  <div class="box">
+  <div class="box owl-item">
     <div class="card-image shadow-2 shadow-3-hover">
       <a href="javascript:void(0)">
         <div class="image hover-scale">
@@ -104,9 +104,9 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
   </div>
   <div class="container">
     <div class="row"><!-- important -->
-      <div class="carousel nav-dark bottom-nav" data-navigation="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
+      <div class="carousel owl-carousel nav-dark bottom-nav" data-nav="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
         <?php for ($i = 1; $i <= 12; $i++): ?>
-        <div class="box">
+        <div class="box owl-item">
           <div class="card-image shadow-2 shadow-3-hover">
             <a href="javascript:void(0)">
               <div class="image hover-scale">
@@ -127,9 +127,9 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
 <div class="hidden" id="carousel3-code">
 <?php
 $code =
-'<div class="carousel nav-dark bottom-nav" data-navigation="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
+'<div class="carousel owl-carousel nav-dark bottom-nav" data-nav="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
   <!-- repeat -->
-  <div class="box">
+  <div class="box owl-item">
     <div class="card-image shadow-2 shadow-3-hover">
       <a href="javascript:void(0)">
         <div class="image hover-scale">
@@ -166,9 +166,9 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
 
   <div class="container">
     <div class="row"><!-- important -->
-      <div id="custom-nav-carousel" class="carousel nav-dark" data-pagination="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
+      <div id="custom-nav-carousel" class="carousel owl-carousel nav-dark" data-pag="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
         <?php for ($i = 1; $i <= 12; $i++): ?>
-        <div class="box">
+        <div class="box owl-item">
           <div class="card-image shadow-2 shadow-3-hover">
             <a href="javascript:void(0)">
               <div class="image hover-scale">
@@ -203,9 +203,9 @@ $code =
 
 <div class="container">
   <div class="row"><!-- important -->
-    <div id="custom-nav-carousel" class="carousel nav-dark" data-pagination="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
+    <div id="custom-nav-carousel" class="carousel owl-carousel nav-dark" data-pag="true" data-xl="4" data-md="3" data-sm="2" data-xs="1">
       <!-- repeat -->
-      <div class="box">
+      <div class="box owl-item">
         <div class="card-image shadow-2 shadow-3-hover">
           <a href="javascript:void(0)">
             <div class="image hover-scale">

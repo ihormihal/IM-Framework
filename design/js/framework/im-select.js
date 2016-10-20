@@ -222,6 +222,7 @@
         function initSelect (template,el) {
 
             var selectedData = null;
+            var currenIndex = -1;
 
             var input = new Input($(el));
             var dropdown = new Dropdown($(template));
@@ -267,6 +268,7 @@
                 if(!collection.isMultiple()){
                     collection.clear();
                 }
+                currenIndex = collection.el.find('li').index($(this));
 
                 if($(this).hasClass('active') || $(this).hasClass('selected')) {
                     $(this).removeClass('selected active');

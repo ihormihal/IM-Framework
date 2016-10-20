@@ -3665,13 +3665,13 @@ footer .nav li a {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent; }
-  .owl-controls .owl-pagination {
+  .owl-controls .owl-dots {
     text-align: center; }
-    .owl-controls .owl-pagination .owl-page {
+    .owl-controls .owl-dots .owl-dot {
       cursor: pointer;
       display: inline-block;
       zoom: 1; }
-      .owl-controls .owl-pagination .owl-page span {
+      .owl-controls .owl-dots .owl-dot span {
         display: block;
         width: 12px;
         height: 12px;
@@ -3682,13 +3682,13 @@ footer .nav li a {
         -moz-border-radius: 50%;
         border-radius: 50%;
         background-color: #ffffff; }
-      .owl-controls .owl-pagination .owl-page.active span {
+      .owl-controls .owl-dots .owl-dot.active span {
         opacity: 1;
         filter: alpha(opacity=100); }
-  .owl-controls.clickable .owl-pagination .owl-page:hover span {
+  .owl-controls.clickable .owl-dots .owl-dot:hover span {
     opacity: 1;
     filter: alpha(opacity=100); }
-  .owl-controls .owl-buttons div {
+  .owl-controls .owl-nav div {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -3700,37 +3700,37 @@ footer .nav li a {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.4);
     color: #ffffff; }
-  .owl-controls .owl-buttons .owl-prev {
+  .owl-controls .owl-nav .owl-prev {
     left: 0; }
-  .owl-controls .owl-buttons .owl-next {
+  .owl-controls .owl-nav .owl-next {
     right: 0; }
-  .owl-controls.clickable .owl-buttons div:hover {
+  .owl-controls.clickable div:hover {
     background-color: rgba(255, 255, 255, 0.7); }
 
-.nav-dark .owl-controls .owl-buttons div {
+.nav-dark .owl-controls .owl-nav div {
   background-color: rgba(0, 0, 0, 0.4); }
 
-.nav-dark .owl-controls.clickable .owl-buttons div:hover {
+.nav-dark .owl-controls.clickable .owl-nav div:hover {
   background-color: rgba(0, 0, 0, 0.7); }
 
-.nav-dark .owl-controls .owl-pagination .owl-page span {
+.nav-dark .owl-controls .owl-dots .owl-dot span {
   background-color: rgba(0, 0, 0, 0.7); }
 
-.carousel .owl-controls .owl-buttons div {
+.carousel .owl-controls .owl-nav div {
   margin-top: -42px; }
 
 .carousel.aside-nav {
   padding: 0 60px; }
 
-.carousel.bottom-nav .owl-controls .owl-buttons {
+.carousel.bottom-nav .owl-controls .owl-nav {
   text-align: center;
   width: 100%; }
-  .carousel.bottom-nav .owl-controls .owl-buttons div {
+  .carousel.bottom-nav .owl-controls .owl-nav div {
     display: inline-block;
     position: static;
     margin: 0 2px; }
 
-.slider .owl-controls .owl-pagination {
+.slider .owl-controls .owl-dots {
   position: absolute;
   bottom: 0;
   left: 0;

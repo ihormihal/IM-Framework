@@ -1,86 +1,62 @@
 (function($) {
 
-$(function() {
-	//OWL Carousel
-	$('.carousel').each(function(){
-		var carousel = $(this);
-		var xs = parseInt($(this).data('xs')) || 1;
-		var sm = parseInt($(this).data('sm')) || 2;
-		var md = parseInt($(this).data('md')) || 3;
-		var lg = parseInt($(this).data('lg')) || 4;
-		var xl = parseInt($(this).data('xl')) || 5;
 
-		var navigation = $(this).attr('data-navigation') == 'true' ? true : false;
-		var pagination = $(this).attr('data-pagination') == 'true' ? true : false;
+	$.fn.imOwlCarousel = function(options){
 
-		var autoplay = false;
-		var data_autoplay = $(this).attr('data-autoplay');
-		if(data_autoplay !== "false"){
-			var autoplay = data_autoplay;
-		}
+		var settings = $.extend({
+			type: 'carousel'
+		}, options);
 
-		var scrollPerPage = $(this).attr('data-scrollPerPage') == 'true' ? true : false;
 
-		carousel.owlCarousel({
-			navigation: navigation,
-			pagination: pagination,
-			navigationText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
-			scrollPerPage: scrollPerPage,
-			autoPlay: autoplay,
-			itemsCustom: [
-				[0,    xs],
-				[361,  sm],
-				[769,  md],
-				[1008, lg],
-				[1265, xl]
-			]
-		});
-	});
-
-	//OWL Slider
-	$('.slider').each(function(){
-		var slider = $(this);
-		var navigation = $(this).data('navigation') || false;
-		var pagination = $(this).data('pagination') || false;
-		var autoplay = false;
-		var data_autoplay = $(this).attr('data-autoplay');
-		if(data_autoplay !== "false"){
-			var autoplay = data_autoplay;
-		}
-
-		slider.owlCarousel({
-			navigation: navigation,
-			pagination: pagination,
-			navigationText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
-			singleItem: true,
-			autoPlay: autoplay,
-			afterAction : function() {
-				var currentIndex = this.currentItem;
-				var slides = slider.find('.owl-item');
-				slides.each(function(index){
-					if(index !== currentIndex){
-						$(this).find('.animated').each(function(){
-							$(this).removeClass($(this).data('animated'));
-						});
-					}
-				});
-				slides.eq(this.currentItem).find('.animated').each(function(){
-					$(this).addClass($(this).data('animated'));
+		$(this).each(function(){
+			var el = $(this);
+			var params = {
+				loop: el.data('loop') == true ? true : false,
+				nav : el.data('nav') == true ? true : false,
+				dots: el.data('pag') == true ? true : false,
+				autoplay: el.data('auto') == true ? true : false,
+				slideBy: el.data('page') == true ? 'page' : 1,
+				autoplayTimeout: el.data('speed') ? parseInt(el.data('speed')) : 5000,
+				navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">']
+			};
+			if(settings.type == 'carousel'){
+				params.responsive = {
+					0: { items: parseInt(el.data('xs')) || 1 },
+					361: { items: parseInt(el.data('sm')) || 2 },
+					769: { items: parseInt(el.data('md')) || 3 },
+					1008: { items: parseInt(el.data('lg')) || 4 },
+					1265: { items: parseInt(el.data('xl')) || 5 }
+				};
+			}else if(settings.type == 'slider'){
+				params.items = 1;
+				el.on('translate.owl.carousel', function(event) {
+					var currentIndex = event.item.index;
+					var slides = el.find('.owl-item');
+					slides.each(function(index){
+						if(index !== event.item.index){
+							$(this).find('.animated').each(function(){
+								$(this).removeClass($(this).data('animated'));
+							});
+						}
+					});
+					slides.eq(currentIndex).find('.animated').each(function(){
+						$(this).addClass($(this).data('animated'));
+					});
 				});
 			}
+			el.owlCarousel(params);
 		});
-	});
 
-	//OWL Carousel custom nav
-	$('.owl-custom-nav').on('click', '.owl-prev, .owl-next', function(){
-		var target = $(this).parent('.owl-custom-nav').data('target');
-		var owl = $(target).data('owlCarousel');
-		if($(this).hasClass('owl-prev')){
-			owl.prev();
-		}else if($(this).hasClass('owl-next')){
-			owl.next();
-		}
-	});
-});
+		//OWL Carousel custom nav
+		$('.owl-custom-nav').on('click', '.owl-prev, .owl-next', function(){
+			var target = $(this).parent('.owl-custom-nav').data('target');
+			var owl = $(target).data('owlCarousel');
+			if($(this).hasClass('owl-prev')){
+				owl.prev();
+			}else if($(this).hasClass('owl-next')){
+				owl.next();
+			}
+		});
 
+	};
 })(jQuery);

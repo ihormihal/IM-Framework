@@ -10,9 +10,9 @@
 	@include no-select;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-	.owl-pagination {
+	.owl-dots {
 		text-align: center;
-		.owl-page {
+		.owl-dot {
 			cursor: pointer;
 			display: inline-block;
 			zoom: 1;
@@ -30,11 +30,11 @@
 			}
 		}
 	}
-	&.clickable .owl-pagination .owl-page:hover span {
+	&.clickable .owl-dots .owl-dot:hover span {
 		@include opacity(1);
 	}
 
-	.owl-buttons {
+	.owl-nav {
 		div {
 			cursor: pointer;
 			position: absolute;
@@ -55,29 +55,29 @@
 			right: 0;
 		}
 	}
-	&.clickable .owl-buttons div:hover {
+	&.clickable div:hover {
 		background-color: rgba(255,255,255,0.7);
 	}
 }
 .nav-dark {
 	.owl-controls {
-		.owl-buttons div {
+		.owl-nav div {
 			background-color: rgba(0,0,0,0.4);
 		}
-		&.clickable .owl-buttons div:hover {
+		&.clickable .owl-nav div:hover {
 			background-color: rgba(0,0,0,0.7);
 		}
-		.owl-pagination .owl-page span {background-color: rgba(0,0,0,0.7);}
+		.owl-dots .owl-dot span {background-color: rgba(0,0,0,0.7);}
 	}
 }
 .carousel {
 	.owl-controls {
-		.owl-pagination {}
-		.owl-buttons div {margin-top: -42px;}
+		.owl-dots {}
+		.owl-nav div {margin-top: -42px;}
 	}
 	&.aside-nav {padding: 0 60px;}
 	&.bottom-nav {
-		.owl-controls .owl-buttons {
+		.owl-controls .owl-nav {
 			text-align: center;
 			width: 100%;
 			div {
@@ -90,7 +90,7 @@
 }
 .slider {
 	.owl-controls {
-		.owl-pagination {
+		.owl-dots {
 			position: absolute;
 			bottom: 0; left: 0; right: 0;
 			z-index: 1000;

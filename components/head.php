@@ -11,7 +11,7 @@ $base_url = ''
 <link href="design/plugins/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
 <link href="design/plugins/material-icons/css/material-icons.css" type="text/css" rel="stylesheet" media="screen,projection" />
 <link href="design/plugins/fancybox/css/jquery.fancybox.css" rel="stylesheet">
-<link href="design/plugins/owl/css/owl.carousel.css" rel="stylesheet">
+<link href="design/plugins/owl2/owl.carousel.css" rel="stylesheet">
 <link href="design/plugins/code/css/github.css" rel="stylesheet">
 <link href="design/plugins/toastr/toastr.min.css" rel="stylesheet">
 <!-- Custom CSS -->
@@ -21,7 +21,7 @@ $base_url = ''
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> -->
 <script src="design/plugins/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
 <script src="design/plugins/fancybox/js/jquery.fancybox.pack.js" type="text/javascript"></script>
-<script src="design/plugins/owl/js/owl.carousel.min.js" type="text/javascript"></script>
+<script src="design/plugins/owl2/owl.carousel.min.js" type="text/javascript"></script>
 <script src="design/plugins/code/js/highlight.min.js" type="text/javascript"></script>
 <script src="design/plugins/toastr/toastr.min.js" type="text/javascript"></script>
 <!-- Framework JS -->
