@@ -46,7 +46,7 @@
 							<?php echo $country['phone']; ?>
 						</td>
 						<td>
-							<?php echo $country['date']; ?>
+							<?php if(array_key_exists('date', $country)) echo $country['date']; ?>
 						</td>
 						<td>
 							<?php echo $country['currency']; ?>
