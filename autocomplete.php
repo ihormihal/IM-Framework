@@ -60,6 +60,7 @@
                   value='[{"value": "UA", "text": "Ukraine"}, {"value": "RU", "text": "Russia"}]'
                   name="country_code"
                   output="multiple_countries"
+                  ng-model="ccc"
                   url="app/data/autocomplete.php"
                   min-length="1"
                   placeholder="Type via comma"
@@ -67,7 +68,10 @@
                 ></im-autocomplete-multiple>
               </div>
               <div class="mt2">
+                <h2>Output:</h2>
                 <pre>{{multiple_countries|json}}</pre>
+                <h2>ngModel:</h2>
+                <pre>{{ccc|json}}</pre>
               </div>
             </div>
           </div>
