@@ -145,7 +145,11 @@ watch-time="0">
 			<th><input ng-model="search.capital" class="full" type="text" placeholder="Capital"></th>
 			<th><input ng-model="search.phone" class="full" type="text" placeholder="Phone code"></th>
 			<th><input ng-model="search.currency" class="full" type="text" placeholder="Currency code"></th>
-			<th></th>
+			<th>
+				<select class="full" ng-model="search.active">
+					<option ng-repeat="value in unique(data, \'active\')" value="{{value}}">{{value}}</option>
+				</select>
+			</th>
 		</tfoot>
 	</table>
 
