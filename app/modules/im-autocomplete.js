@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.4.10 - 2016-10-20
+ * im-autocomplete - v0.4.11 - 2016-10-20
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
@@ -427,12 +427,13 @@ angular.module('im-autocomplete', [])
 					}
 				});
 
+
 				textInput.onfocus = function(){
 					console.log('focus');
 					$scope.select.focus = true;
-					if(config.onfocus){
-						$scope.loadResults();
-					}
+					// if(config.onfocus){
+					// 	$scope.loadResults();
+					// }
 				};
 
 				var makeBlur = function(){
@@ -452,6 +453,7 @@ angular.module('im-autocomplete', [])
 						var exists = false;
 						for(var j = 0; j < $scope.select.selected.length; j++){
 							if($scope.select.selected[j].value == $scope.select.results[i].value){
+								$scope.select.selected[j] = $scope.select.results[i];
 								exists = true;
 							}
 						}
@@ -493,6 +495,12 @@ angular.module('im-autocomplete', [])
 						console.log(error);
 					});
 				};
+
+				//pre-load all results
+				if(config.onfocus){
+					$scope.loadResults();
+				}
+
 
 				$scope.$watch('url', function(){
 					alreadyLoaded = false;
