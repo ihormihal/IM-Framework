@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.5.0 - 2016-10-21
+ * im-autocomplete - v0.5.1 - 2016-10-21
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
@@ -288,9 +288,9 @@ angular.module('im-autocomplete', [])
 		},
 		template: '<div class="dropdown dropdown-select im-autocomplete-multiple" ng-class="{\'focus in\': select.visible}">'+
 			'<input ng-model="select.value" name="{{name}}" type="hidden">'+
-			'<div class="selection {{class}}" ng-click="clickSelection($event)" ng-class="{\'focus\': select.focus, \'empty\': select.empty, \'select\': select.onfocus, \'loading\': loading}">'+
+			'<div class="selection {{class}}" ng-class="{\'focus\': select.focus, \'empty\': select.empty, \'select\': select.onfocus, \'loading\': loading}">'+
 				'<div ng-repeat="item in select.selected" class="item" ng-class="{\'custom\': !item.value}">{{item.text}}<i class="fa fa-times" ng-click="select.remove($index)"></i></div>'+
-				'<input autocomplete="off" ng-model="select.search" type="text" placeholder="{{placeholder}}" ng-focus="select.focus = true">'+
+				'<input autocomplete="off" ng-model="select.search" type="text" placeholder="{{placeholder}}">'+
 			'</div>'+
 			'<div class="collection">'+
 				'<ul>'+
@@ -304,6 +304,7 @@ angular.module('im-autocomplete', [])
 
 				var input = $element[0].getElementsByTagName('input')[0]; //hidden
 				var textInput = $element[0].getElementsByTagName('input')[1]; //for search
+				var selection = $element[0].getElementsByClassName('selection')[0];
 				var collection = $element[0].getElementsByClassName('collection')[0];
 				var list = $element[0].getElementsByTagName('ul')[0];
 
@@ -339,7 +340,7 @@ angular.module('im-autocomplete', [])
 				$element[0].onkeyup = function(event) {
 					event.preventDefault();
 					event.stopPropagation()
-					console.log(event.keyCode);
+					//console.log(event.keyCode);
 					//key down
 					if(event.keyCode == 40){
 
@@ -381,9 +382,12 @@ angular.module('im-autocomplete', [])
 
 				};
 
-				$scope.clickSelection = function($event){
-					$event.stopPropagation();
-					textInput.focus();
+				//focus on selection click
+				selection.onclick = function(event){
+					event.stopPropagation();
+					if(event.target == selection){
+						textInput.focus();
+					}
 				};
 
 				$scope.select = {
@@ -404,7 +408,7 @@ angular.module('im-autocomplete', [])
 						$scope.select.selected.push(selected);
 						$scope.select.search = ''; //clear search field
 						updateSelected(true);
-						
+
 						$scope.select.focus = false;
 						$scope.select.visible = false;
 						textInput.blur();
@@ -437,7 +441,6 @@ angular.module('im-autocomplete', [])
 				textInput.onfocus = function(){
 					$scope.select.focus = true;
 					if(config.onfocus){
-						$scope.select.visible = true;
 						$scope.loadResults();
 					}
 				};
@@ -459,14 +462,16 @@ angular.module('im-autocomplete', [])
 						var exists = false;
 						for(var j = 0; j < $scope.select.selected.length; j++){
 							if($scope.select.selected[j].value == $scope.select.results[i].value){
-								$scope.select.selected[j] = $scope.select.results[i];
+								$scope.select.selected[j] = $scope.select.results[i]; //update selected by value just in case
 								exists = true;
+								break;
 							}
 						}
 						if(!exists){
 							temp.push($scope.select.results[i]);
 						}
 					}
+					//cutting selected from dropdown
 					$scope.select.results = temp;
 					if($scope.select.results.length && showResults){
 						$scope.select.visible = true;
@@ -474,11 +479,9 @@ angular.module('im-autocomplete', [])
 				};
 
 				var alreadyLoaded = false;
-				var preloaded = false;
 				$scope.loadResults = function(val){
-					if(alreadyLoaded && config.onfocus) {
-						updateSelected(false);
-						return false;
+					if(alreadyLoaded) {
+						updateSelected(true);
 					}
 
 					val = val || '';
@@ -496,9 +499,8 @@ angular.module('im-autocomplete', [])
 					}).then(function(response) {
 						$scope.loading = false;
 						$scope.select.results = response.data;
-						updateSelected(preloaded);
+						updateSelected(!config.onfocus);
 						alreadyLoaded = true;
-						preloaded = true;
 					}, function(error) {
 						console.log(error);
 					});
@@ -509,11 +511,12 @@ angular.module('im-autocomplete', [])
 					$scope.loadResults();
 				}
 
-
+				//olways update if url-parameter changed
 				$scope.$watch('url', function(){
 					alreadyLoaded = false;
 				});
 
+				//add custom element
 				$scope.addCustom = function(val){
 					if(val == config.customChar){
 						$scope.select.search = '';
@@ -550,10 +553,10 @@ angular.module('im-autocomplete', [])
 					}
 
 					$scope.output = val;
-					$scope.select.value = angular.toJson(val);
-					input.value = $scope.select.value;
+					$scope.select.value = input.value = angular.toJson(val);
 					$scope.updated = true;
 
+					//add 'autocomplete' to ngModel
 					var temp = [];
 					for (var i = 0; i < val.length; i++) {
 						temp.push({

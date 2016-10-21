@@ -62,7 +62,7 @@
                   output="multiple_countries"
                   ng-model="ccc"
                   url="app/data/autocomplete.php"
-                  min-length="1"
+                  min-length="2"
                   placeholder="Type via comma"
                   class="default"
                 ></im-autocomplete-multiple>
