@@ -65,7 +65,11 @@
 					<th>
 						<input ng-model="search.currency" class="full" type="text" placeholder="Currency code">
 					</th>
-					<th></th>
+					<th>
+						<select class="full" ng-model="search.active">
+							<option ng-repeat="value in unique(data, 'active')" value="{{value}}">{{value}}</option>
+						</select>
+					</th>
 				</tfoot>
 			</table>
 			<div class="row">

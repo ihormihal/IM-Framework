@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "imDatatable"
- * im-datatable - v0.4.5 - 2016-10-20
+ * im-datatable - v0.4.6 - 2016-10-21
  * https://github.com/ihormihal/IM-Framework
  * datatable.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
@@ -195,12 +195,20 @@ angular.module('im-dataTable', [])
 					};
 				}
 
+				$scope.unique = function(array, property){
+					var unique = {};
+					for (var i = 0; i < $scope.data.length; i++) {
+						if($scope.data[i].hasOwnProperty(property)){
+							unique[$scope.data[i][property]] = null;
+						}
+					}
+					return Object.keys(unique);
+				};
+
 				//pagination, sorting, searching
 				var filter = function() {
 					if ($scope.table.ajax) {
 						$scope.search.$ = $scope.s;
-					} else {
-						$scope.search.cells.$ = $scope.s;
 					}
 					$scope.rows = $filter('filter')($scope.data, $scope.search);
 					$scope.rows = $filter('orderBy')($scope.rows, $scope.sort);

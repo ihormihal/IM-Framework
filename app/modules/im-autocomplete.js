@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.5.1 - 2016-10-21
+ * im-autocomplete - v0.5.2 - 2016-10-21
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
@@ -321,10 +321,12 @@ angular.module('im-autocomplete', [])
 				var blurDelay = null;
 
 				if($attrs.custom){
-					if($attrs.custom == "true"){
+					if($attrs.custom == 'true'){
 						config.custom = 'only';
-					}else if($attrs.custom == "false"){
+					}else if($attrs.custom == 'false'){
 						config.custom = 'deny';
+					}else{
+						config.custom = 'allow';
 					}
 				}
 

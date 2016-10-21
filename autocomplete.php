@@ -30,6 +30,52 @@
         </section>
     </header>
     <main ng-controller="mainController">
+
+      <section>
+        <div class="container pt2 pb2">
+          <h2 class="mb1">Attributes</h2>
+          <table class="table noborder">
+
+            <tr>
+              <td><span class="label blue-bg">placeholder</span></td>
+              <td>Input`s placeholder text</td>
+            </tr>
+            <tr>
+              <td><span class="label blue-bg">class</span></td>
+              <td>Additional CSS classname for selection field</td>
+            </tr>
+            <tr>
+              <td><span class="label blue-bg">value</span></td>
+              <td>Initial value (json)</td>
+            </tr>
+            <tr>
+              <td><span class="label blue-bg">name</span></td>
+              <td>Input name attribute</td>
+            </tr>
+            <tr>
+              <td><span class="label blue-bg">url</span></td>
+              <td>AJAX url (to get json)</td>
+            </tr>
+            <tr>
+              <td><span class="label blue-bg">min-length</span></td>
+              <td>The minimum length of the string to search for</td>
+            </tr>
+            <tr>
+              <td><span class="label blue-bg">custom</span></td>
+              <td>"true" - only custom variants, "false" - only loaded variants, by default - custom and loaded</td>
+            </tr>
+            <tr>
+              <td><span class="label blue-bg">output</span></td>
+              <td>$scope variable name for output</td>
+            </tr>
+            <tr>
+              <td><span class="label blue-bg">ng-model</span></td>
+              <td>ngModel</td>
+            </tr>
+
+          </table>
+        </div>
+      </section>
       
       <form action="index.php" method="post">
       <section>
@@ -60,7 +106,7 @@
                   value='[{"value": "UA", "text": "Ukraine"}, {"value": "RU", "text": "Russia"}]'
                   name="country_code"
                   output="multiple_countries"
-                  ng-model="ccc"
+                  ng-model="multiple_countries_model"
                   url="app/data/autocomplete.php"
                   min-length="2"
                   placeholder="Type via comma"
@@ -71,7 +117,7 @@
                 <h2>Output:</h2>
                 <pre>{{multiple_countries|json}}</pre>
                 <h2>ngModel:</h2>
-                <pre>{{ccc|json}}</pre>
+                <pre>{{multiple_countries_model|json}}</pre>
               </div>
             </div>
           </div>
