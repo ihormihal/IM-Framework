@@ -1,6 +1,6 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.5.4 - 2016-10-21
+ * im-autocomplete - v0.5.5 - 2016-10-21
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
@@ -283,7 +283,7 @@ angular.module('im-autocomplete', [])
 			ngModel: '=',
 			updated: '='
 		},
-		template: '={{select.visible}}=<div class="dropdown dropdown-select im-autocomplete-multiple" ng-class="{\'focus in\': select.visible}">'+
+		template: '<div class="dropdown dropdown-select im-autocomplete-multiple" ng-class="{\'focus in\': select.visible}">'+
 			'<input ng-model="select.value" name="{{name}}" type="hidden">'+
 			'<div class="selection {{class}}" ng-class="{\'focus\': select.focus, \'empty\': select.empty, \'select\': select.onfocus, \'loading\': loading}">'+
 				'<div ng-repeat="item in select.selected" class="item" ng-class="{\'custom\': !item.value}">{{item.text}}<i class="fa fa-times" ng-click="select.remove($index)"></i></div>'+
@@ -414,6 +414,7 @@ angular.module('im-autocomplete', [])
 					remove: function(index){
 						$scope.select.selected.splice(index,1);
 						updateSelected(false);
+						alreadyLoaded = false;
 					}
 				};
 
