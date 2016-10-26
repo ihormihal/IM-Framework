@@ -1,4 +1,4 @@
-angular.module('app', ['im-dataTable', 'im-imgUpload', 'im-progress', 'im-autocomplete'])
+angular.module('app', ['im-dataTable', 'im-imgUpload', 'im-progress', 'im-autocomplete', 'im-datepicker'])
 
 .config([function () {
 
@@ -9,6 +9,10 @@ angular.module('app', ['im-dataTable', 'im-imgUpload', 'im-progress', 'im-autoco
 }])
 
 .controller('mainController', ['$scope', function($scope){
+
+	$scope.singleTest = {
+		type: 'autocomplete'
+	};
 
 }])
 

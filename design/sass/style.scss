@@ -6,6 +6,8 @@
 @import "main/dimentions";
 @import "main/helpers";
 
+@import "main/animations";
+
 
 @import "components/fonts";
 @import "components/text";
@@ -43,6 +45,7 @@
 
 @import "angular/im_img_uploader";
 @import "angular/im_carousel";
+@import "angular/im_datepicker";
 
 @import "components/admin";
 @import "components/aside_menu";

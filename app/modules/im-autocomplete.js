@@ -1,19 +1,20 @@
 /*
  * Angular - Directive "im-autocomplete"
- * im-autocomplete - v0.5.5 - 2016-10-21
+ * im-autocomplete - v0.5.9 - 2016-10-26
  * https://github.com/ihormihal/IM-Framework
  * autocomplete.php
  * Ihor Mykhalchenko (http://mycode.in.ua/)
  */
 
 //delay form submit event on press Enter key
-var submitDelay = null;
+window.submitDelay = null;
 document.onsubmit = function(event){
 	event.preventDefault();
 	function submit(){
+		console.log('submit form');
 		event.target.submit();
 	}
-	submitDelay = setTimeout(submit, 100);
+	window.submitDelay = setTimeout(submit, 300);
 };
 
 angular.module('im-autocomplete', [])
@@ -112,6 +113,7 @@ angular.module('im-autocomplete', [])
 				$element[0].onkeyup = function(event) {
 					event.preventDefault();
 					event.stopPropagation();
+					console.log(event.keyCode);
 					//key down
 					if(event.keyCode == 40){
 						$scope.scrollmode = true;
@@ -155,7 +157,7 @@ angular.module('im-autocomplete', [])
 					}else if(event.keyCode == 13){
 						$scope.scrollmode = false;
 						if($scope.select.visible){
-							clearTimeout(submitDelay);
+							clearTimeout(window.submitDelay);
 							textInput.blur();
 						}
 					}else{
@@ -176,11 +178,10 @@ angular.module('im-autocomplete', [])
 
 				$scope.$watch('ngModel', function(val){
 					if(val){
-						if(!val.hasOwnProperty('type')){
-							val.type = 'autocomplete';
-							$scope.ngModel = val;
-						}
-						$scope.select.selected = val;
+						$scope.select.selected = {
+							value : val.value,
+							text : val.text
+						};
 						if($scope.select.selected.text){
 							$scope.select.search = $scope.select.selected.text;
 						}
@@ -195,12 +196,12 @@ angular.module('im-autocomplete', [])
 
 				if(config.onfocus){
 					textInput.onfocus = function(){
-						$scope.loadResults();
+						loadResults();
 					}
 				}
 
 				var alreadyLoaded = false;
-				$scope.loadResults = function(val){
+				var loadResults = function(val){
 					if(alreadyLoaded) {
 						updateSelected(true);
 						if(config.onfocus) return false;
@@ -256,7 +257,7 @@ angular.module('im-autocomplete', [])
 					}
 					if(val.length >= parseInt(config.minLength) && !chosen){
 						alreadyLoaded = false;
-						$scope.loadResults(val);
+						loadResults(val);
 					}else{
 						$scope.select.results = [];
 					}
@@ -264,6 +265,7 @@ angular.module('im-autocomplete', [])
 
 				$scope.$watch('select.selected', function(val){
 					input.value = angular.toJson(val);
+					$scope.ngModel.type = 'autocomplete';
 				});
 			}
 		]
@@ -335,6 +337,61 @@ angular.module('im-autocomplete', [])
 					}
 				}
 
+				//prevent form submittion on press Enter key
+				textInput.onkeyup = function(event) {
+					if(event.keyCode == 13){
+						clearTimeout(window.submitDelay);
+					}
+				};
+
+				//focus on selection click
+				selection.onclick = function(event){
+					event.stopPropagation();
+					if(event.target == selection){
+						textInput.focus();
+					}
+				};
+
+				var removeDubles = function(){
+					var temp = [];
+					for (var i = 0; i < $scope.select.selected.length; i++) {
+						var text = $scope.select.selected[i].text;
+						if(temp.indexOf(text) !== -1){
+							$scope.select.selected.splice(i, 1);
+						}
+						temp.push(text);
+					}
+				};
+
+				$scope.select = {
+					search: '',
+					value: '',
+					currentIndex: -1,
+					selected: [],
+					results : [],
+					visible: false,
+					focus: false,
+					onfocus: config.onfocus,
+					empty: true,
+					choose: function(index){
+						$scope.select.currentIndex = index;
+						clearTimeout(blurDelay);
+						var selected = $scope.select.results[index];
+
+						$scope.select.selected.push(selected);
+						$scope.select.search = ''; //clear search field
+						updateSelected(false);
+
+						$scope.select.focus = false;
+						textInput.blur();
+					},
+					remove: function(index){
+						$scope.select.selected.splice(index,1);
+						updateSelected(false);
+						alreadyLoaded = false;
+					}
+				};
+
 				//key commands
 				$element[0].onkeyup = function(event) {
 					event.preventDefault();
@@ -373,56 +430,32 @@ angular.module('im-autocomplete', [])
 						
 					}else if(event.keyCode == 13){
 						if($scope.select.visible){
-							clearTimeout(submitDelay);
-							$scope.select.choose($scope.select.currentIndex);
+							clearTimeout(window.submitDelay);
+							if($scope.select.currentIndex >= 0){
+								$scope.select.choose($scope.select.currentIndex);
+							}
+						}else if(config.custom == 'allow' || config.custom == 'only'){
+							//clearTimeout(window.submitDelay);
+							//add custom
+							if($scope.select.search.length > 0){
+								$scope.select.selected.push({text: $scope.select.search});
+								removeDubles();
+								$scope.select.search = '';
+							}
 						}
 					}
 					$scope.$apply();
 
 				};
 
-				//focus on selection click
-				selection.onclick = function(event){
-					event.stopPropagation();
-					if(event.target == selection){
-						textInput.focus();
-					}
-				};
-
-				$scope.select = {
-					search: '',
-					value: '',
-					currentIndex: -1,
-					selected: [],
-					results : [],
-					visible: false,
-					focus: false,
-					onfocus: config.onfocus,
-					empty: true,
-					choose: function(index){
-						$scope.select.currentIndex = index;
-						clearTimeout(blurDelay);
-						var selected = $scope.select.results[index];
-
-						$scope.select.selected.push(selected);
-						$scope.select.search = ''; //clear search field
-						updateSelected(false);
-
-						$scope.select.focus = false;
-						textInput.blur();
-					},
-					remove: function(index){
-						$scope.select.selected.splice(index,1);
-						updateSelected(false);
-						alreadyLoaded = false;
-					}
-				};
-
 				//initialize
+
+				//from value
 				if($attrs.value){
 					var initValues = angular.fromJson($attrs.value);
 					$scope.select.selected = initValues;
 				}
+				//from ngModel
 				$scope.$watch('ngModel', function(val){
 					if(val){
 						$scope.select.selected = []
@@ -439,7 +472,7 @@ angular.module('im-autocomplete', [])
 				textInput.onfocus = function(){
 					$scope.select.focus = true;
 					if(config.onfocus){
-						$scope.loadResults();
+						loadResults();
 					}
 				};
 
@@ -483,7 +516,7 @@ angular.module('im-autocomplete', [])
 				};
 
 				var alreadyLoaded = false;
-				$scope.loadResults = function(val){
+				loadResults = function(val){
 
 					if(alreadyLoaded) {
 						updateSelected(true);
@@ -516,7 +549,7 @@ angular.module('im-autocomplete', [])
 
 				//pre-load all results
 				if(config.onfocus){
-					$scope.loadResults();
+					loadResults();
 				}
 
 				//olways update if url-parameter changed
@@ -526,11 +559,12 @@ angular.module('im-autocomplete', [])
 				});
 
 				//add custom element
-				$scope.addCustom = function(val){
+				var addCustom = function(val){
 					if(val == config.customChar){
 						$scope.select.search = '';
 					}else if(val.length > 1 && val.substr(val.length - 1) == config.customChar){
 						$scope.select.selected.push({text: val.substring(0, val.length - 1)});
+						removeDubles();
 						$scope.select.search = '';
 					}
 				};
@@ -543,12 +577,12 @@ angular.module('im-autocomplete', [])
 						alreadyLoaded = false;
 						//add custom
 						if(config.custom == 'allow'){
-							$scope.addCustom(val);
-							$scope.loadResults(val);
+							addCustom(val);
+							loadResults(val);
 						}else if(config.custom == 'only'){
-							$scope.addCustom(val);
+							addCustom(val);
 						}else if(config.custom == 'deny'){
-							$scope.loadResults(val);
+							loadResults(val);
 						}
 						
 					}

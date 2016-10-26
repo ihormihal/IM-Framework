@@ -77,93 +77,99 @@
         </div>
       </section>
       
-      <form action="index.php" method="post">
-      <section>
-        <div class="container pt2 pb2">
-          <div class="row">
-            <div class="col-md-6">
-              <h2 class="mb1">Single select + custom variant</h2>
-              <div class="form-group">
-                <label for="">Country</label>
-                <im-autocomplete-single
-                  value='{"value": "UA", "text": "Ukraine"}'
-                  name="country_code"
-                  output="single_country"
-                  url="app/data/autocomplete.php"
-                  min-length="1"
-                  placeholder="Type name"
-                ></im-autocomplete-single>
-                <div class="mt2">
+      <form action="#" method="post">
+        <section>
+          <div class="container pt2 pb2">
+            <div class="row">
+              <div class="col-md-6">
+                <h2 class="mb1">Single select + custom variant</h2>
+                <div class="form-group">
+                  <label for="">Country</label>
+                  <im-autocomplete-single
+                    value='{"value": "UA", "text": "Ukraine"}'
+                    name="country_code"
+                    output="single_country"
+                    ng-model="single_country_model"
+                    url="app/data/autocomplete.php"
+                    min-length="1"
+                    placeholder="Type name"
+                  ></im-autocomplete-single>
+                  <div class="mt2">
+                  <h2>Output:</h2>
                   <pre>{{single_country|json}}</pre>
+                  <h2>ngModel:</h2>
+                  <pre>{{single_country_model|json}}</pre>
+                </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <h2 class="mb1">Multiple select + custom variant</h2>
-              <div class="form-group">
-                <label for="">Countries</label>
-                <im-autocomplete-multiple
-                  value='[{"value": "UA", "text": "Ukraine"}, {"value": "RU", "text": "Russia"}]'
-                  name="country_code"
-                  output="multiple_countries"
-                  ng-model="multiple_countries_model"
-                  url="app/data/autocomplete.php"
-                  min-length="0"
-                  placeholder="Type via comma"
-                  class="default"
-                ></im-autocomplete-multiple>
-              </div>
-              <div class="mt2">
-                <h2>Output:</h2>
-                <pre>{{multiple_countries|json}}</pre>
-                <h2>ngModel:</h2>
-                <pre>{{multiple_countries_model|json}}</pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="container pt2 pb2">
-          <div class="row">
-            <div class="col-md-6">
-              <h2 class="mb1">Single select on focus</h2>
-              <div class="form-group">
-                <label for="">Country</label>
-                <im-autocomplete-single
-                  value=''
-                  name="country_code"
-                  output="single_country_onfocus"
-                  url="app/data/autocomplete.php"
-                  min-length="0"
-                  placeholder="Type name"
-                ></im-autocomplete-single>
+              <div class="col-md-6">
+                <h2 class="mb1">Multiple select + custom variant</h2>
+                <div class="form-group">
+                  <label for="">Countries</label>
+                  <im-autocomplete-multiple
+                    value='[{"value": "UA", "text": "Ukraine"}, {"value": "RU", "text": "Russia"}]'
+                    name="country_code"
+                    output="multiple_countries"
+                    ng-model="multiple_countries_model"
+                    url="app/data/autocomplete.php"
+                    min-length="0"
+                    placeholder="Type via comma"
+                    class="default"
+                  ></im-autocomplete-multiple>
+                </div>
                 <div class="mt2">
-                  <pre>{{single_country_onfocus|json}}</pre>
+                  <h2>Output:</h2>
+                  <pre>{{multiple_countries|json}}</pre>
+                  <h2>ngModel:</h2>
+                  <pre>{{multiple_countries_model|json}}</pre>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <h2 class="mb1">Multiple select on focus</h2>
-              <div class="form-group">
-                <label for="">Countries</label>
-                <im-autocomplete-multiple
-                  value=''
-                  name="country_code"
-                  output="multiple_countries_onfocus"
-                  url="app/data/autocomplete.php"
-                  min-length="0"
-                  placeholder="Type via comma"
-                ></im-autocomplete-multiple>
+          </div>
+        </section>
+
+        <section>
+          <div class="container pt2 pb2">
+            <div class="row">
+              <div class="col-md-6">
+                <h2 class="mb1">Single select on focus</h2>
+                <div class="form-group">
+                  <label for="">Country</label>
+                  <im-autocomplete-single
+                    value=''
+                    name="country_code"
+                    ng-model="singleTest"
+                    output="single_country_onfocus"
+                    url="app/data/autocomplete.php"
+                    min-length="0"
+                    placeholder="Type name"
+                  ></im-autocomplete-single>
+                  <div class="mt2">
+                    <pre>{{single_country_onfocus|json}}</pre>
+                  </div>
+                </div>
               </div>
-              <div class="mt2">
-                <pre>{{multiple_countries_onfocus|json}}</pre>
+              <div class="col-md-6">
+                <h2 class="mb1">Multiple select on focus</h2>
+                <div class="form-group">
+                  <label for="">Countries</label>
+                  <im-autocomplete-multiple
+                    value=''
+                    name="country_code"
+                    output="multiple_countries_onfocus"
+                    url="app/data/autocomplete.php"
+                    min-length="0"
+                    placeholder="Type via comma"
+                  ></im-autocomplete-multiple>
+                </div>
+                <div class="mt2">
+                  <pre>{{multiple_countries_onfocus|json}}</pre>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <input type="submit" value="Submit">
       </form>
 
     </main>
