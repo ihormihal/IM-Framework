@@ -72,6 +72,10 @@
               <td><span class="label blue-bg">ng-model</span></td>
               <td>ngModel</td>
             </tr>
+            <tr>
+              <td><span class="label blue-bg">disable</span></td>
+              <td>"disabled" attribute for input</td>
+            </tr>
 
           </table>
         </div>
@@ -112,7 +116,7 @@
                     output="multiple_countries"
                     ng-model="multiple_countries_model"
                     url="app/data/autocomplete.php"
-                    min-length="0"
+                    min-length="2"
                     placeholder="Type via comma"
                     class="default"
                   ></im-autocomplete-multiple>
@@ -140,7 +144,7 @@
                     name="country_code"
                     ng-model="singleTest"
                     output="single_country_onfocus"
-                    url="app/data/autocomplete.php"
+                    url="app/data/autocomplete.php?cou={{single_country}}"
                     min-length="0"
                     placeholder="Type name"
                   ></im-autocomplete-single>
