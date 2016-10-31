@@ -33,7 +33,9 @@
 
       <section>
         <div class="container pt2 pb2">
-          <im-datepicker></im-datepicker>
+          <im-datepicker inpopup="true">
+            <input type="text" value="10.10.2016">
+          </im-datepicker>
         </div>
       </section>
 

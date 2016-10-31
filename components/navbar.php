@@ -40,7 +40,7 @@
                   <li><a class="ripple" href="<?php echo $base; ?>datatable.php"><i class="mti">dns</i> IM Datatable</a></li>
                   <li><a class="ripple" href="<?php echo $base; ?>img-uploader.php"><i class="mti">star</i> IM ImgUploader</a></li>
                   <li><a class="ripple" href="<?php echo $base; ?>autocomplete.php"><i class="mti">star</i> IM Autocomplete</a></li>
-                  <li><a class="ripple" href="<?php echo $base; ?>im-carousel.php"><i class="mti">star</i> IM Carousel</a></li>
+                  <li><a class="ripple" href="<?php echo $base; ?>datepicker.php"><i class="mti">star</i> IM Datepicker</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -84,7 +84,7 @@
       <li><a class="ripple" href="<?php echo $base; ?>datatable.php"><i class="mti">dns</i> IM Datatable</a></li>
       <li><a class="ripple" href="<?php echo $base; ?>img-uploader.php"><i class="mti">star</i> IM ImgUploader</a></li>
       <li><a class="ripple" href="<?php echo $base; ?>autocomplete.php"><i class="mti">star</i> IM Autocomplete</a></li>
-      <li><a class="ripple" href="<?php echo $base; ?>im-carousel.php"><i class="mti">star</i> IM Carousel</a></li>
+      <li><a class="ripple" href="<?php echo $base; ?>datepicker.php"><i class="mti">star</i> IM Datepicker</a></li>
     </ul>
   </nav>
 </div>

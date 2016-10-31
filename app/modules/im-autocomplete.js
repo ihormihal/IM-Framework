@@ -75,7 +75,7 @@ angular.module('im-autocomplete', [])
 					$scope.select.visible = false;
 					$scope.$apply();
 				};
-				var hideSelectDelay;
+				var hideDelay;
 
 
 				$scope.updateSelected = function(apply){
@@ -102,7 +102,7 @@ angular.module('im-autocomplete', [])
 
 						$scope.updateSelected();
 
-						clearTimeout(hideSelectDelay);
+						clearTimeout(hideDelay);
 						$scope.select.visible = false;
 						
 					}
@@ -189,7 +189,7 @@ angular.module('im-autocomplete', [])
 				});
 
 				textInput.onblur = function(){
-					hideSelectDelay = setTimeout(hideSelect, 200);
+					hideDelay = setTimeout(hideSelect, 200);
 				};
 
 

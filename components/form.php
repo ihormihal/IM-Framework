@@ -26,7 +26,7 @@
 					<label>Simple input with icon</label>
 					<div class="input-icon">
 						<input class="full" type="text" placeholder="Placeholder">
-						<i class="fa fa-calendar"></i>
+						<i class="icon fa fa-calendar"></i>
 					</div>
 				</div>
 
@@ -74,7 +74,7 @@
 					<label>Simple input with icon</label>
 					<div class="input-icon default">
 						<input class="default full" type="text" placeholder="Placeholder">
-						<i class="fa fa-calendar"></i>
+						<i class="icon fa fa-calendar"></i>
 					</div>
 				</div>
 

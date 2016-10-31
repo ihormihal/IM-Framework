@@ -47,6 +47,19 @@
     </div>
 
     <div class="container">
+        <div class="box white grey-bg text-center">class="row" > class="col-md-ten-2"</div>
+        <div class="row">
+            <?php for ($i = 1; $i <= 5; $i++): ?>
+                <div class="col-md-ten-2">
+                    <div class="box white light-blue-bg">
+                        column #<?php echo $i; ?>
+                    </div>
+                </div>
+            <?php endfor ?>
+        </div>
+    </div>
+
+    <div class="container">
         <div class="box white grey-bg text-center">class="row thin"</div>
         <div class="row thin">
             <?php for ($i = 1; $i <= 6; $i++): ?>

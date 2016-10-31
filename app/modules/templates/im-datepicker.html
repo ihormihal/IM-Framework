@@ -1,0 +1,50 @@
+<ng-transclude></ng-transclude>
+<div class="im-datepicker" ng-class="{'inpopup': inpopup, 'visible': visible}">
+	<div class="im-datepicker-controls">
+		<div class="control-month">
+			<div class="month">{{months[datepicker.date.month]}} <span class="year" ng-click="toggleYears()" ng-class="{'active': yearSelection}">{{datepicker.date.year}}</span></div>
+			<div class="prev" ng-click="prevMonth()"><span><i class="fa fa-angle-left"></i></span></div>
+			<div class="next" ng-click="nextMonth()"><span><i class="fa fa-angle-right"></i></span></div>
+		</div>
+	</div>
+	<table class="im-datepicker-years" ng-show="yearSelection">
+		<tbody>
+			<tr>
+				<td ng-repeat="year in years_line1" ng-click="pickYear(year)" ng-class="{'current': year.current, 'selected': year.selected}"><span>{{year.year}}</span></td>
+			</tr>
+			<tr>
+				<td ng-repeat="year in years_line2" ng-click="pickYear(year)" ng-class="{'current': year.current, 'selected': year.selected}"><span>{{year.year}}</span></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="im-datepicker-controls" ng-show="yearSelection">
+		<div class="control-years">
+			<div class="prev" ng-click="prevYears()"><span><i class="fa fa-angle-left"></i></span></div>
+			<div class="next" ng-click="nextYears()"><span><i class="fa fa-angle-right"></i></span></div>
+		</div>
+	</div>
+	<table class="im-datepicker-table">
+		<thead>
+			<tr>
+				<th>Mon</th>
+				<th>Tue</th>
+				<th>Wed</th>
+				<th>Thu</th>
+				<th>Fri</th>
+				<th>Sat</th>
+				<th>Sun</th>
+			</tr>
+		</thead>
+		<tr ng-repeat="week in datepicker.page">
+			<td class="day"
+			ng-repeat="day in week"
+			ng-click="pickDate(day)"
+			ng-class="{'current': day.current, 'selected': day.selected, 'not-current': !day.visible}">
+			{{day.day}}
+			</td>
+		</tr>
+	</table>
+</div>
+
+<!-- <div class="mt2"></div>
+<pre>{{datepicker|json}}</pre> -->

@@ -21,10 +21,10 @@ body.fixed-footer {
 	}
 }
 .border {border-width: 1px;}
-.border-top {border-width: 1px 0 0 0;}
-.border-right {border-width: 0 1px 0 0;}
+.border-top    {border-width: 1px 0 0 0;}
+.border-right  {border-width: 0 1px 0 0;}
 .border-bottom {border-width: 0 0 1px 0;}
-.border-left {border-width: 0 0 0 1px;}
+.border-left   {border-width: 0 0 0 1px;}
 
 header {
 	&.fixed {
