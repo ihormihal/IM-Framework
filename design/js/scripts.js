@@ -68,10 +68,10 @@ $(document).on('click', 'tr.clickable', function() {
 });
 
 //input-icon fix
-$(document).on('click', '.input-icon i', function() {
+$(document).on('click', '.input-icon i', function(event) {
+	event.stopPropagation();
 	$(this).parent().find('input').focus();
 });
-
 
 $(function() {
 
