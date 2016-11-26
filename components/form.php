@@ -194,7 +194,7 @@
 		<div class="mt2"></div>
 		<div class="row">
 			<?php
-			  $countries = json_decode(file_get_contents('app/data/countries.json'),true);
+			  $countries = json_decode(file_get_contents('server/data/countries.json'),true);
 			?>
 			<div class="col-md-6">
 				<div class="form-group floating-label">
@@ -216,7 +216,7 @@
 					<select class="multiselect full" data-search-placeholder="Search..." name="country" placeholder="Select country...">
 						<option value="">Empty</option>
 						<?php foreach ($countries as $key => $country): ?>
-						<option data-icon="design/img/pin.png" value="<?php echo $country['code']; ?>"><?php echo $country['name']; ?></option>
+						<option data-icon="assets/img/pin.png" value="<?php echo $country['code']; ?>"><?php echo $country['name']; ?></option>
 						<?php endforeach ?>
 					</select>
 				</div>
@@ -244,7 +244,7 @@
 					<label for="">Select autocomplete (multiple) with icons <a class="show-code" href="#select-multiple-icon-code"><i class="fa fa-code"></i></a></label>
 					<select class="multiselect full" data-search-placeholder="Search..." name="countries" placeholder="Select countries..." multiple>
 						<?php foreach ($countries as $key => $country): ?>
-						<option data-icon="design/img/pin.png" <?php if($country['name'] == 'Morocco') echo 'selected' ?> value="<?php echo $country['code']; ?>"><?php echo $country['name']; ?></option>
+						<option data-icon="assets/img/pin.png" <?php if($country['name'] == 'Morocco') echo 'selected' ?> value="<?php echo $country['code']; ?>"><?php echo $country['name']; ?></option>
 						<?php endforeach ?>
 					</select>
 				</div>
@@ -276,7 +276,7 @@ $code =
 	<label for="">Select autocomplete</label>
 	<select class="multiselect full" data-search-placeholder="Search..." name="country" placeholder="Select country...">
 		<!-- repeat -->
-		<option data-icon="design/img/pin.png" value="value">Name</option>
+		<option data-icon="assets/img/pin.png" value="value">Name</option>
 		<!-- /repeat -->
 	</select>
 </div>';
@@ -304,7 +304,7 @@ $code =
 	<label for="">Select autocomplete (multiple)</label>
 	<select class="multiselect full" data-search-placeholder="Search..." name="countries" placeholder="Select countries..." multiple>
 		<!-- repeat -->
-		<option data-icon="design/img/pin.png" value="value">Name</option>
+		<option data-icon="assets/img/pin.png" value="value">Name</option>
 		<!-- /repeat -->
 	</select>
 </div>';

@@ -7,7 +7,7 @@
     <?php for ($i = 1; $i <= 4; $i++): ?>
     <div class="row condensed">
       <div class="col-md-6">
-        <div class="cell background" style="background-image: url(design/images/img_<?php echo $i;?>.png);">
+        <div class="cell background" style="background-image: url(assets/images/img_<?php echo $i;?>.png);">
           <div class="p2 text-center">
             <h4 class="mb2">Step <?php echo $i;?>:</h4>
             <h2 class="mb2">Lorem ipsum dolor</h2>
@@ -17,7 +17,7 @@
       </div>
       <div class="col-md-6">
         <div class="cell image hover-scale">
-          <img src="design/images/950x520.jpg" alt="">
+          <img src="assets/images/950x520.jpg" alt="">
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@ $code =
   <!-- repeat -->
   <div class="row condensed">
     <div class="col-md-6">
-      <div class="cell background" style="background-image: url(design/images/img_1.png);">
+      <div class="cell background" style="background-image: url(assets/images/img_1.png);">
         <div class="p2 text-center">
           <h4 class="mb2">Step 1:</h4>
           <h2 class="mb2">Lorem ipsum dolor</h2>
@@ -42,7 +42,7 @@ $code =
     </div>
     <div class="col-md-6">
       <div class="cell image hover-scale">
-        <img src="design/images/950x520.jpg" alt="">
+        <img src="assets/images/950x520.jpg" alt="">
       </div>
     </div>
   </div>

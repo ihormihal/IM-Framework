@@ -10,7 +10,7 @@
                 <div class="card-image shadow-2 shadow-3-hover">
                     <a href="#">
                         <div class="image hover-scale">
-                            <img src="design/images/400x225.jpg" alt="">
+                            <img src="assets/images/400x225.jpg" alt="">
                         </div>
                         <div class="box content">
                             <h3 class="white">The title</h3>
@@ -27,7 +27,7 @@ $code =
 '<div class="card-image shadow-2 shadow-3-hover">
     <a href="#">
         <div class="image hover-scale">
-            <img src="design/images/400x225.jpg" alt="">
+            <img src="assets/images/400x225.jpg" alt="">
         </div>
         <div class="box content">
             <h3 class="white">The title</h3>
@@ -48,7 +48,7 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
                 <div class="card-image slide shadow-2 shadow-3-hover">
                     <a href="#">
                         <div class="image">
-                            <img src="design/images/400x225.jpg" alt="">
+                            <img src="assets/images/400x225.jpg" alt="">
                         </div>
                         <div class="box content">
                             <h3 class="title white">The title</h3>
@@ -67,7 +67,7 @@ $code =
 '<div class="card-image slide shadow-2 shadow-3-hover">
     <a href="#">
         <div class="image">
-            <img src="design/images/400x225.jpg" alt="">
+            <img src="assets/images/400x225.jpg" alt="">
         </div>
         <div class="box content">
             <h3 class="title white">The title</h3>
@@ -88,7 +88,7 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
             <div class="col-md-4">
                 <div class="card-box shadow-2 shadow-3-hover">
                     <div class="header image hover-scale">
-                        <img src="design/images/400x225.jpg" alt="title">
+                        <img src="assets/images/400x225.jpg" alt="title">
                     </div>
                     <div class="content">
                         <div class="box">
@@ -110,7 +110,7 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
 $code =
 '<div class="card-box shadow-2 shadow-3-hover">
     <div class="header image hover-scale">
-        <img src="design/images/400x225.jpg" alt="title">
+        <img src="assets/images/400x225.jpg" alt="title">
     </div>
     <div class="content">
         <div class="box">
@@ -135,7 +135,7 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
             <div class="row condensed">
                 <div class="col-md-4 header">
                     <div class="image hover-scale">
-                        <img src="design/images/400x225.jpg" alt="title">
+                        <img src="assets/images/400x225.jpg" alt="title">
                     </div>
                 </div>
                 <div class="col-md-8 content">
@@ -157,7 +157,7 @@ $code =
     <div class="row condensed">
         <div class="col-md-4 header">
             <div class="image hover-scale">
-                <img src="design/images/400x225.jpg" alt="title">
+                <img src="assets/images/400x225.jpg" alt="title">
             </div>
         </div>
         <div class="col-md-8 content">

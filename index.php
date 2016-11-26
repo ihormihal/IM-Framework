@@ -6,7 +6,7 @@
     <body>
         <header>
             <?php include 'components/navbar.php'; ?>
-            <section class="light-bg pt2 pb2 cover relative" style="background-image: url(design/images/header.jpg);">
+            <section class="light-bg pt2 pb2 cover relative" style="background-image: url(assets/images/header.jpg);">
               <div class="container wide">
                 <div class="row">
                   <div class="col-md-6">

@@ -9,7 +9,7 @@
             <div class="col-md-4">
               <div class="item text-center">
                 <div class="image">
-                  <img src="design/images/abstract-logo.png" alt="">
+                  <img src="assets/images/abstract-logo.png" alt="">
                 </div>
                 <h3 class="title teal mt2">Lorem ipsum dolor</h3>
                 <div class="description grey mt1">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>

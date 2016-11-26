@@ -12,7 +12,7 @@
           <div class="card-image shadow-2 shadow-3-hover">
             <a href="javascript:void(0)">
               <div class="image hover-scale">
-                <img src="design/images/400x225.jpg" alt="">
+                <img src="assets/images/400x225.jpg" alt="">
               </div>
               <div class="box content">
                 <h3 class="white">The title <?php echo $i; ?></h3>
@@ -35,7 +35,7 @@ $code =
     <div class="card-image shadow-2 shadow-3-hover">
       <a href="javascript:void(0)">
         <div class="image hover-scale">
-          <img src="design/images/400x225.jpg" alt="">
+          <img src="assets/images/400x225.jpg" alt="">
         </div>
         <div class="box content">
           <h3 class="white">The title 1</h3>
@@ -61,7 +61,7 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
           <div class="card-image shadow-2 shadow-3-hover">
             <a href="javascript:void(0)">
               <div class="image hover-scale">
-                <img src="design/images/400x225.jpg" alt="">
+                <img src="assets/images/400x225.jpg" alt="">
               </div>
               <div class="box content">
                 <h3 class="white">The title <?php echo $i; ?></h3>
@@ -84,7 +84,7 @@ $code =
     <div class="card-image shadow-2 shadow-3-hover">
       <a href="javascript:void(0)">
         <div class="image hover-scale">
-          <img src="design/images/400x225.jpg" alt="">
+          <img src="assets/images/400x225.jpg" alt="">
         </div>
         <div class="box content">
           <h3 class="white">The title 1</h3>
@@ -110,7 +110,7 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
           <div class="card-image shadow-2 shadow-3-hover">
             <a href="javascript:void(0)">
               <div class="image hover-scale">
-                <img src="design/images/400x225.jpg" alt="">
+                <img src="assets/images/400x225.jpg" alt="">
               </div>
               <div class="box content">
                 <h3 class="white">The title <?php echo $i; ?></h3>
@@ -133,7 +133,7 @@ $code =
     <div class="card-image shadow-2 shadow-3-hover">
       <a href="javascript:void(0)">
         <div class="image hover-scale">
-          <img src="design/images/400x225.jpg" alt="">
+          <img src="assets/images/400x225.jpg" alt="">
         </div>
         <div class="box content">
           <h3 class="white">The title 1</h3>
@@ -172,7 +172,7 @@ echo '<pre><code class="lang-html">'.htmlspecialchars($code).'</code></pre>';
           <div class="card-image shadow-2 shadow-3-hover">
             <a href="javascript:void(0)">
               <div class="image hover-scale">
-                <img src="design/images/400x225.jpg" alt="">
+                <img src="assets/images/400x225.jpg" alt="">
               </div>
               <div class="box content">
                 <h3 class="white">The title <?php echo $i; ?></h3>
@@ -209,7 +209,7 @@ $code =
         <div class="card-image shadow-2 shadow-3-hover">
           <a href="javascript:void(0)">
             <div class="image hover-scale">
-              <img src="design/images/400x225.jpg" alt="">
+              <img src="assets/images/400x225.jpg" alt="">
             </div>
             <div class="box content">
               <h3 class="white">The title 1</h3>

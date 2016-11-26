@@ -5,21 +5,21 @@
   </div>
   <div class="slider owl-slider" data-nav="true" data-pag="true" data-loop="true">
     <div class="item">
-      <img class="background" src="design/images/background.jpg" alt="">
+      <img class="background" src="assets/images/background.jpg" alt="">
       <div class="container white pt6 pb6 animated" data-animated="fadeInDown">
         <h1>Slide 1</h1>
         <h3>Slide subtitle</h3>
       </div>
     </div>
     <div class="item">
-      <img class="background" src="design/images/background.jpg" alt="">
+      <img class="background" src="assets/images/background.jpg" alt="">
       <div class="container white pt6 pb6">
         <h1 class="animated" data-animated="fadeInDownBig">Slide 2</h1>
         <h2 class="animated" data-animated="fadeInRight">Slide subtitle</h2>
       </div>
     </div>
     <div class="item">
-      <img class="background" src="design/images/background.jpg" alt="">
+      <img class="background" src="assets/images/background.jpg" alt="">
       <div class="container white pt6 pb6 animated" data-animated="fadeInUp">
         <h1>Slide 3</h1>
         <h3>Slide subtitle</h3>
@@ -33,7 +33,7 @@ $code =
 '<div class="slider owl-slider" data-nav="true" data-pag="true">
   <!-- repeat -->
   <div class="item">
-    <img class="background" src="design/images/background.jpg" alt="">
+    <img class="background" src="assets/images/background.jpg" alt="">
     <div class="container white pt6 pb6">
       <h1 class="animated" data-animated="fadeInDownBig">Slide 2</h1>
       <h2 class="animated" data-animated="fadeInRight">Slide subtitle</h2>

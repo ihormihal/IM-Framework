@@ -1,5 +1,5 @@
 <?php
-  $countries = json_decode(file_get_contents('app/data/countries.json'),true);
+  $countries = json_decode(file_get_contents('server/data/countries.json'),true);
 ?>
 <div id="datatable" class="navbar-target"></div>
 <section>

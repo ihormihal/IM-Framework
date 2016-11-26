@@ -16,7 +16,7 @@ $material_colors = array(
         <div class="row condensed">
         	<?php foreach ($colors as $color): ?>
         		<div class="col-md-4">
-                    <div class="box <?php if($color == 'white'){echo 'grey';}else{echo 'white';} echo ' '.$color; ?>-bg">
+                    <div class="box <?php echo $color; ?>-bg">
                         <?php echo $color;?>
                     </div>
                 </div>

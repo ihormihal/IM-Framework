@@ -1,3 +1,12 @@
+<?php
+if(!empty($_GET['component'])){
+    $component = $_GET['component'];
+}else{
+    header("Location: /");
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,36 +19,27 @@
 <body ng-app="app">
     <header>
         <?php include 'components/navbar.php'; ?>
-        <section class="light-bg pt2 pb2 cover" style="background-image: url(design/images/background.jpg);">
+        <section class="light-bg pt2 pb2 cover" style="background-image: url(assets/images/background.jpg);">
             <div class="container wide">
                 <div class="row">
                     <div class="col-md-6">
                         <h1 class="white">AngularJS</h1>
                     </div>
                     <div class="col-md-6">
+                        <ul class="breadcrumbs white lh1 right-md">
+                            <li><a href="http://mycode.in.ua/">MyCode</a></li>
+                            <li><a href="http://mycode.in.ua/framework/">Framework</a></li>
+                            <li>AngularJS directives</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
     </header>
     <main ng-controller="mainController">
-        <div class="container">
-            <div class="form-group">
-                <label for="">AJAX Select <a class="show-code" href="#ajax-select-code"><i class="fa fa-code"></i></a></label>
-                <im-ajax-select 
-                name="country"
-                url="app/data/ajax-select.php"
-                value="UA"
-                output="country"
-                placeholder="Select country..."
-                splaceholder="Search..."
-                >
-                </im-ajax-select>
-            </div>
-        </div>
+    <?php include 'components/'.$component.'.php'; ?>
     </main>
-    <footer>
-    </footer>
+    
 </body>
 
 </html>

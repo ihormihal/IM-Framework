@@ -5,7 +5,7 @@
       <div class="col-md-3 col-xs-8">
         <div class="">
           <div class="logo">
-            <img src="design/img/logo.svg" alt="">
+            <img src="assets/img/logo.svg" alt="">
           </div>
         </div>
       </div>
@@ -35,18 +35,19 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a class="toggle ripple"><i class="mti">more_vert</i> AngularJS</a>
+                <a class="toggle ripple"><i class="mti">more_vert</i> JS</a>
                 <ul class="collection">
-                  <li><a class="ripple" href="<?php echo $base; ?>datatable.php"><i class="mti">dns</i> IM Datatable</a></li>
-                  <li><a class="ripple" href="<?php echo $base; ?>img-uploader.php"><i class="mti">star</i> IM ImgUploader</a></li>
-                  <li><a class="ripple" href="<?php echo $base; ?>autocomplete.php"><i class="mti">star</i> IM Autocomplete</a></li>
-                  <li><a class="ripple" href="<?php echo $base; ?>datepicker.php"><i class="mti">star</i> IM Datepicker</a></li>
+                  <li><a class="ripple" href="<?php echo $base; ?>js.php?component=js/ajax"><i class="mti">star</i> AJAX</a></li>
+                  <li><a class="ripple" href="<?php echo $base; ?>js.php?component=js/gmap"><i class="mti">star</i> Gmap</a></li>
                 </ul>
               </li>
               <li class="dropdown">
-                <a class="toggle ripple"><i class="mti">more_vert</i> Styled</a>
+                <a class="toggle ripple"><i class="mti">more_vert</i> AngularJS</a>
                 <ul class="collection">
-                  <li><a class="ripple" href="<?php echo $base; ?>styled.php#buttons"><i class="mti">star</i> Buttons</a></li>
+                  <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/datatable"><i class="mti">dns</i> IM Datatable</a></li>
+                  <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/img-uploader"><i class="mti">star</i> IM ImgUploader</a></li>
+                  <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/autocomplete"><i class="mti">star</i> IM Autocomplete</a></li>
+                  <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/datepicker"><i class="mti">star</i> IM Datepicker</a></li>
                 </ul>
               </li>
             </ul>
@@ -81,10 +82,14 @@
       <li><a class="ripple" href="<?php echo $base; ?>headers.php"><i class="mti">star</i> Headers</a></li>
     </ul>
     <ul class="nav nav-col">
-      <li><a class="ripple" href="<?php echo $base; ?>datatable.php"><i class="mti">dns</i> IM Datatable</a></li>
-      <li><a class="ripple" href="<?php echo $base; ?>img-uploader.php"><i class="mti">star</i> IM ImgUploader</a></li>
-      <li><a class="ripple" href="<?php echo $base; ?>autocomplete.php"><i class="mti">star</i> IM Autocomplete</a></li>
-      <li><a class="ripple" href="<?php echo $base; ?>datepicker.php"><i class="mti">star</i> IM Datepicker</a></li>
+      <li><a class="ripple" href="<?php echo $base; ?>js.php?component=js/ajax"><i class="mti">dns</i> AJAX</a></li>
+      <li><a class="ripple" href="<?php echo $base; ?>js.php?component=js/gmap"><i class="mti">star</i> Gmap</a></li>
+    </ul>
+    <ul class="nav nav-col">
+      <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/datatable"><i class="mti">dns</i> IM Datatable</a></li>
+      <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/img-uploader"><i class="mti">star</i> IM ImgUploader</a></li>
+      <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/autocomplete"><i class="mti">star</i> IM Autocomplete</a></li>
+      <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/datepicker"><i class="mti">star</i> IM Datepicker</a></li>
     </ul>
   </nav>
 </div>

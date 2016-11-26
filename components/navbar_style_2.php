@@ -4,7 +4,7 @@
 
       <div class="col-lg-3">
         <div class="logo text-md-center">
-          <img src="design/images/dummy-logo.png" alt="">
+          <img src="assets/images/dummy-logo.png" alt="">
         </div>
       </div>
 

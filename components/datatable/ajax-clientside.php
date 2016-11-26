@@ -2,7 +2,7 @@
 	<div class="container pt2 pb2">
 		<h2 class="mb1">AJAX JSON Datatable <a class="show-code" href="#json-datatable-code"> <i class="fa fa-code"></i></a></h2>
 		<h3 class="mb2 grey">Client-side pagination, searching and filtering</h3>
-		<div im-datatable get-url="app/data/countries.json" update-url="app/data/update_row.php" watch-url="app/data/country.json" watch-time="0">
+		<div im-datatable get-url="server/data/countries.json" update-url="server/data/update_row.php" watch-url="server/data/country.json" watch-time="0">
 			<div class="row">
 				<div class="col-md-4">
 					<input type="text" class="full" ng-model="s" placeholder="Search..." />

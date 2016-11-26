@@ -4,8 +4,8 @@
 		<h3 class="mb2 grey">Select and update multiple rows</h3>
 		<div
 			im-datatable
-			get-url="app/data/countries.json" 
-			update-url="app/data/update_row.php"
+			get-url="server/data/countries.json" 
+			update-url="server/data/update_row.php"
 			>
 
 			<div class="row tile">

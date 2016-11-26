@@ -9,7 +9,8 @@
     		361  <i class="fa fa-angle-left"></i> <b>sm</b> <i class="fa fa-angle-left"></i>
     		769  <i class="fa fa-angle-left"></i> <b>md</b> <i class="fa fa-angle-left"></i>
     		1008 <i class="fa fa-angle-left"></i> <b>lg</b> <i class="fa fa-angle-left"></i>
-    		1264 <i class="fa fa-angle-left"></i> <b>xl</b>
+            1264 <i class="fa fa-angle-left"></i> <b>xl</b> <i class="fa fa-angle-left"></i>
+    		1904 <i class="fa fa-angle-left"></i> <b>xxl</b>
     	</div>
     </div>
 

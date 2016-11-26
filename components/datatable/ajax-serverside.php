@@ -5,9 +5,9 @@
 		<div
 		im-datatable 
 		server-side="true" 
-		get-url="app/data/countries.php" 
-		update-url="app/data/update_row.php" 
-		watch-url="app/data/country.json" 
+		get-url="server/data/countries.php" 
+		update-url="server/data/update_row.php" 
+		watch-url="server/data/country.json" 
 		watch-time="0">
 			<div class="row">
 				<div class="col-md-4">

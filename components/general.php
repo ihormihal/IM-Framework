@@ -43,6 +43,18 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Vertical and left align using flex</td>
+                    <td><span class="label brown-bg">.flex-valign</span></td>
+                </tr>
+                <tr>
+                    <td>Vertica and right align using flex</td>
+                    <td><span class="label brown-bg">.flex-valign-end</span></td>
+                </tr>
+                <tr>
+                    <td>Align content to bottom and left using flex</td>
+                    <td><span class="label brown-bg">.flex-bottom</span></td>
+                </tr>
+                <tr>
                     <td>Align content to center using flex</td>
                     <td><span class="label brown-bg">.flex-middle</span></td>
                 </tr>
@@ -113,7 +125,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Circle (always is inline-block)</td>
+                    <td>Circle (always is an inline-block)</td>
                     <td><span class="label brown-bg">.circle</span></td>
                 </tr>
             </tbody>
@@ -127,7 +139,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Background</td>
+                    <td>Background (center, no-repeat)</td>
+                    <td><span class="label brown-bg">.background</span></td>
+                </tr>
+                <tr>
+                    <td>Background (left, no-repeat)</td>
+                    <td><span class="label brown-bg">.background.bg-left</span></td>
+                </tr>
+                <tr>
+                    <td>Background (right, no-repeat)</td>
+                    <td><span class="label brown-bg">.background.bg-right</span></td>
+                </tr>
+                <tr>
+                    <td>Background (cover)</td>
                     <td><span class="label brown-bg">.cover</span></td>
                 </tr>
                 <tr>
