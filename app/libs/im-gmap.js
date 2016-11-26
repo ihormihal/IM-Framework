@@ -20,7 +20,7 @@
 			//extend settings
 			var thatData = $(container).data();
 			for(var i in settings){
-				if(i in thatData){
+				if(thatData.hasOwnProperty(i)){
 					gmap.settings[i] = thatData[i];
 				}else{
 					gmap.settings[i] = settings[i];
@@ -54,6 +54,7 @@
 	};
 
 	$.fn.imGmapMultiple = function(options) {
+		if(this.length == 0) return false;
 		var that = this[0];
 		var settings = $.extend({
 			zoom: 5,
@@ -75,7 +76,7 @@
 		//extend settings
 		var thatData = $(that).data();
 		for(var i in settings){
-			if(i in thatData){
+			if(thatData.hasOwnProperty(i)){
 				gmap.settings[i] = thatData[i];
 			}else{
 				gmap.settings[i] = settings[i];
