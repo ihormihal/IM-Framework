@@ -10,7 +10,7 @@ var gulp      = require('gulp'),
 	uglify    = require('gulp-uglifyjs');
 
 var framework_libs = ['fileinput','im-gmap','im-dropdown','im-parallax','im-select','navbar','owl','ripple'];
-var vendor_libs = ['code','fancybox','owl2','spin','toastr','wow'];
+var vendor_libs = ['code','fancybox','owl2','spin','toastr','wow','sektor'];
 var fonts = ['font-awesome','material-icons'];
 
 gulp.task('fontsDist', function() {

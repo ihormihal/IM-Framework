@@ -4,6 +4,7 @@ $dtCurrentColor: color(light-grey);
 
 im-datepicker {
 	position: relative;
+	display: block;
 }
 
 .im-datepicker {
@@ -13,7 +14,7 @@ im-datepicker {
 		display: none;
 		position: absolute;
 		left: 0;
-		top: 40px;
+		top: 50px;
 		z-index: 9000;
 		@include box-shadow(1px 1px 3px rgba(0,0,0,0.4));
 		@include fadeInUp;
@@ -174,6 +175,18 @@ im-datepicker {
 		@include transition(background-color 0.3s easy);
 		&:hover {
 			background-color: rgba(#000, 0.2);
+		}
+	}
+}
+
+$oneSeven: 100/7;
+@media screen and (max-width: #{$sm - 1}px) {
+	.im-datepicker, .im-datepicker-table {
+		width: 100%;
+	}
+	.im-datepicker-table {
+		thead th, tbody td {
+			width: $oneSeven#{%} !important;
 		}
 	}
 }
