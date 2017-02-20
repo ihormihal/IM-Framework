@@ -1,0 +1,38 @@
+footer {
+	.links {
+		//margin-top: $gap;
+		a {
+			margin-right: $gap;
+			color: color(light-grey);
+		}
+	}
+
+	.jaya-logo {
+		display: block;
+		text-align: right;
+		img {
+			width: 80px;
+			height: auto;
+		}
+	}
+	
+}
+
+@media screen and (max-width: #{$md - 1}px) {
+	footer {
+		.copyright {
+			text-align: center;
+		}
+		.links {
+			text-align: center;
+			a {
+				display: block;
+				margin: 8px 0;
+			}
+		}
+		.jaya-logo {
+			padding: $gap 0;
+			text-align: center;
+		}
+	}
+}

@@ -5,13 +5,13 @@
     </head>
     <body>
         <header>
-            <?php include 'components/navbar.php'; ?>
+            <?php include 'components/elements/navbar.php'; ?>
         </header>
         <div class="container text-center pt2 pb2">
             <div class="h2">Navbar style #1</div>
         </div>
         <header>
-            <?php include 'components/navbar_style_1.php'; ?>
+            <?php include 'components/elements/navbar_style_1.php'; ?>
         </header>
 
 
@@ -19,21 +19,21 @@
             <div class="h2">Navbar style #2</div>
         </div>
         <header>
-            <?php include 'components/navbar_style_2.php'; ?>
+            <?php include 'components/elements/navbar_style_2.php'; ?>
         </header>
 
         <div class="container text-center pt2 pb2">
             <div class="h2">Navbar style #3</div>
         </div>
         <header>
-            <?php include 'components/navbar_style_3.php'; ?>
+            <?php include 'components/elements/navbar_style_3.php'; ?>
         </header>
 
         <div class="container text-center pt2 pb2">
             <div class="h2">Navbar style #4</div>
         </div>
         <header>
-            <?php include 'components/navbar_style_4.php'; ?>
+            <?php include 'components/elements/navbar_style_4.php'; ?>
         </header>
 
     </body>

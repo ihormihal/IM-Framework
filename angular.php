@@ -18,8 +18,8 @@ if(!empty($_GET['component'])){
 
 <body ng-app="app">
     <header>
-        <?php include 'components/navbar.php'; ?>
-        <section class="light-bg pt2 pb2 cover" style="background-image: url(assets/images/background.jpg);">
+        <?php include 'components/elements/navbar.php'; ?>
+        <section class="light-bg pt2 pb2 cover" style="background-image: url(design/images/background.jpg);">
             <div class="container wide">
                 <div class="row">
                     <div class="col-md-6">

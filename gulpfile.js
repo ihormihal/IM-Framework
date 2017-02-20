@@ -1,75 +1,96 @@
 'use strict';
 //var lr = require('tiny-lr');
-var gulp      = require('gulp'),
+const gulp  = require('gulp'),
 	//livereload= require('gulp-livereload'),
 	sass      = require('gulp-sass'),
 	rename    = require('gulp-rename'),
 	concat    = require('gulp-concat'),
 	concatCss = require('gulp-concat-css'),
 	minifycss = require('gulp-minify-css'),
-	uglify    = require('gulp-uglifyjs');
+	uglify    = require('gulp-uglifyjs'),
+	autoprefixer = require('gulp-autoprefixer');
 
-var framework_libs = ['fileinput','im-gmap','im-dropdown','im-parallax','im-select','navbar','owl','ripple'];
-var vendor_libs = ['code','fancybox','owl2','spin','toastr','wow','sektor'];
-var fonts = ['font-awesome','material-icons'];
+const srcDir  = 'design/source/';
+const vendorDir  = 'design/source/vendor/';
+const distDir = 'design/';
 
-gulp.task('fontsDist', function() {
-	return gulp.src('app/fonts/+('+fonts.join('|')+')/**')   
-	.pipe(gulp.dest('assets/fonts'));
-});
+const framework_libs = [
+	'fileinput',
+	'im-gmap',
+	'im-dropdown',
+	'im-parallax',
+	'im-select',
+	'im-header',
+	'navbar',
+	'owl',
+	'ripple'
+];
+const vendor_libs = [
+	'code',
+	'fancybox',
+	'owl2',
+	'spin',
+	'toastr',
+	'wow',
+	'sektor'
+];
+
 
 gulp.task('jqueryDist', function() {
-  	return gulp.src('app/vendor/jquery/jquery-2.1.4.min.js') 
-  	.pipe(rename("jquery.min.js"))  
-    .pipe(gulp.dest('assets/js'));
+  	return gulp.src(srcDir+'vendor/jquery/jquery-2.1.4.min.js')
+  	.pipe(rename("jquery.min.js"))
+    .pipe(gulp.dest(distDir+'js'));
 });
 
 gulp.task('vendorCss', function () {
-  return gulp.src('app/vendor/+('+vendor_libs.join('|')+')/*.css')
-    .pipe(concatCss("vendor.css"))   
-    .pipe(minifycss('')) 
+  return gulp.src(vendorDir+'('+vendor_libs.join('|')+')/*.css')
+    .pipe(concatCss("vendor.css"))
+    .pipe(minifycss(''))
     .pipe(rename("vendor.min.css"))
-    .pipe(gulp.dest('assets/css'));
+    .pipe(gulp.dest(distDir+'css'));
 });
 
 gulp.task('vendorJs', function() {
-  return gulp.src('app/vendor/+('+vendor_libs.join('|')+')/*.js')
+  return gulp.src(vendorDir+'('+vendor_libs.join('|')+')/*.js')
     .pipe(concat('vendor.min.js'))
-    .pipe(uglify(''))
-    .pipe(gulp.dest('assets/js'));
+    //.pipe(uglify(''))
+    .pipe(gulp.dest(distDir+'js'));
 });
 
 gulp.task('frameworkJs', function() {
-  return gulp.src('app/libs/+('+framework_libs.join('|')+').js')
+  return gulp.src(srcDir+'libs/+('+framework_libs.join('|')+').js')
     .pipe(concat('imf.min.js'))
-    //.pipe(uglify(''))
-    .pipe(gulp.dest('assets/js'));
+    .pipe(uglify(''))
+    .pipe(gulp.dest(distDir+'js'));
 });
 
 gulp.task('scripts', function() {
-	return gulp.src('app/js/*.js')
+	return gulp.src(srcDir+'js/*.js')
 	.pipe(concat('scripts.min.js'))
-	//.pipe(uglify(''))
-	.pipe(gulp.dest('assets/js'));
+	.pipe(uglify(''))
+	.pipe(gulp.dest(distDir+'js'));
 });
 
 
 
-gulp.task('vendor', ['fontsDist','jqueryDist','vendorCss','vendorJs']);
+gulp.task('vendor', ['jqueryDist','vendorCss','vendorJs']);
 
 gulp.task('sass', function () {
-	gulp.src('app/sass/**/*.scss')
+	gulp.src(srcDir+'sass/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(concatCss("style.css"))
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+		}))
 		.pipe(minifycss(''))
 		.pipe(rename("style.min.css"))
-		.pipe(gulp.dest('assets/css'));
-});
- 
-gulp.task('watch', function () {
-	gulp.watch('app/sass/**/*.scss', ['sass']);
-	gulp.watch('app/js/*.js', ['scripts']);
-	gulp.watch('app/libs/*.js', ['frameworkJs']);
+		.pipe(gulp.dest(distDir+'css'));
 });
 
-gulp.task('default', ['fontsDist','jqueryDist','vendorCss','vendorJs','frameworkJs','scripts','sass']);
+gulp.task('watch', function () {
+	gulp.watch(srcDir+'sass/**/*.scss', ['sass']);
+	gulp.watch(srcDir+'js/*.js', ['scripts']);
+	gulp.watch(srcDir+'libs/*.js', ['frameworkJs']);
+});
+
+gulp.task('default', ['jqueryDist','vendorCss','vendorJs','frameworkJs','scripts','sass']);

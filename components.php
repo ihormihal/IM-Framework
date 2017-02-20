@@ -5,8 +5,8 @@
     </head>
     <body>
         <header>
-          <?php include 'components/navbar.php'; ?>
-          <section class="light-bg pt2 pb2 cover relative" style="background-image: url(assets/images/header.jpg);">
+          <?php include 'components/elements/navbar.php'; ?>
+          <section class="light-bg pt2 pb2 cover relative" style="background-image: url(design/images/header.jpg);">
             <div class="container wide">
               <div class="row">
                 <div class="col-md-6">
@@ -28,17 +28,26 @@
         </header>
         <main>
 
-        <?php include 'components/buttons.php'; ?>
-        <?php include 'components/form.php'; ?>
-        <?php include 'components/parallax.php'; ?>
-        <?php include 'components/cards.php'; ?>
-        <?php include 'components/slider.php'; ?>
-        <?php include 'components/carousel.php'; ?>
-        <?php include 'components/datatable.php'; ?>
-        <?php include 'components/tabs.php'; ?>
-        <?php include 'components/section1.php'; ?>
-        <?php include 'components/section2.php'; ?>
-        <?php include 'components/section3.php'; ?>
+        <?php  
+            if(!empty($_GET['component'])){
+                $component = $_GET['component'];
+                if($component == 'owl'){
+                    include 'components/elements/slider.php';
+                    include 'components/elements/carousel.php';
+                }elseif($component == 'sections'){
+                    include 'components/elements/section1.php';
+                    include 'components/elements/section2.php';
+                    include 'components/elements/section3.php';
+                }else{
+                    include 'components/elements/'.$component.'.php';
+                }
+            }else{
+                include 'components/elements/buttons.php';
+                include 'components/elements/form.php';
+                include 'components/elements/parallax.php';
+                include 'components/elements/tabs.php';
+            }
+        ?>
 
         </main>
         <footer>
