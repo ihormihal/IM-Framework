@@ -23,7 +23,7 @@
     </div>
 
     <div class="container fit mb1">
-        <div class="grey-bg"><h2 class="text-center up white h2 pt1 pb1">container fit <span class="yellow">100% - 32px</span></h2></div>
+        <div class="grey-bg"><h2 class="text-center up white h2 pt1 pb1">container fit <span class="yellow">100% - 64px (32px on mobile)</span></h2></div>
     </div>
 
     <div class="container full mb1">

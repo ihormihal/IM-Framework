@@ -43,6 +43,26 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Box0 (padding: 8px)</td>
+                    <td><span class="label brown-bg">.box0</span></td>
+                </tr>
+                <tr>
+                    <td>Box (padding: 16px)</td>
+                    <td><span class="label brown-bg">.box</span></td>
+                </tr>
+                <tr>
+                    <td>Box2 (padding: 32px)</td>
+                    <td><span class="label brown-bg">.box2</span></td>
+                </tr>
+                <tr>
+                    <td>Square responsive block</td>
+                    <td><span class="label brown-bg">.square > .inner</span></td>
+                </tr>
+                <tr>
+                    <td>Align content to center using flex</td>
+                    <td><span class="label brown-bg">.flex-middle</span></td>
+                </tr>
+                <tr>
                     <td>Vertical and left align using flex</td>
                     <td><span class="label brown-bg">.flex-valign</span></td>
                 </tr>
@@ -55,8 +75,8 @@
                     <td><span class="label brown-bg">.flex-bottom</span></td>
                 </tr>
                 <tr>
-                    <td>Align content to center using flex</td>
-                    <td><span class="label brown-bg">.flex-middle</span></td>
+                    <td>Align content to bottom and right using flex</td>
+                    <td><span class="label brown-bg">.flex-bottom-right</span></td>
                 </tr>
             </tbody>
         </table>
@@ -111,6 +131,10 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>Border radius, PX</td>
+                    <td><span class="label brown-bg">.rounded-{number}</span></td>
+                </tr>
+                <tr>
                     <td>Shadow</td>
                     <td><span class="label brown-bg">.shadow-{1...5}</span></td>
                 </tr>
@@ -134,7 +158,7 @@
         <table class="hoverable full mt1">
             <thead>
                 <tr>
-                    <th colspan="2" class="text-center">Images</th>
+                    <th colspan="2" class="text-center">Images / Video</th>
                 </tr>
             </thead>
             <tbody>
@@ -164,6 +188,13 @@
                     <td>Scale effect fot <b>img</b> (wrapper)</td>
                     <td>
                         <span class="label brown-bg">.hover-scale</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Responsive wrapper for <b>iframe</b> tag</td>
+                    <td>
+                        <span class="label brown-bg">.video.ratio-16-9</span>
+                        <span class="label brown-bg">.video.ratio-4-3</span>
                     </td>
                 </tr>
             </tbody>

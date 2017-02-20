@@ -7,7 +7,7 @@ body.fixed-footer {
 	}
 }
 
-.box05 {
+.box0 {
 	padding: $gap/2 0;
 }
 .box {
@@ -15,6 +15,30 @@ body.fixed-footer {
 }
 .box2 {
 	padding: $gap*2;
+}
+.square {
+	display: block;
+	position: relative;
+	height: 0;
+	padding: 0 0 100% 0;
+	.inner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
+}
+@media screen and (max-width: #{$md - 1}px) {
+	.square {
+		position: static;
+		padding: 0;
+		height: auto;
+		.inner {
+			position: static;
+			padding: $gap;
+		}
+	}
 }
 
 /* BORDERS */
@@ -43,9 +67,6 @@ header {
 }
 .cover {
 	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -72,7 +93,6 @@ header {
 }
 .circle {
 	display: inline-block;
-	//@include border-radius(50%);
 	border-radius: 50%;
 	&.circle-sm {
 
