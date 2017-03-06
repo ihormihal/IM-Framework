@@ -6,7 +6,7 @@
 
 <section>
   <div class="container pt2 pb2">
-    <im-datepicker inpopup="true">
+    <im-datepicker >
       <input type="text" value="10.10.2016" readonly="true">
     </im-datepicker>
   </div>

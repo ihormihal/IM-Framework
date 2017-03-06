@@ -47,6 +47,12 @@
                   <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/datepicker"><i class="mti">star</i> IM Datepicker</a></li>
                 </ul>
               </li>
+              <li class="dropdown">
+                <a class="toggle ripple"><i class="mti">more_vert</i> ReactJS</a>
+                <ul class="collection">
+                  <li><a class="ripple" href="<?php echo $base; ?>react.php?component=react/datepicker"><i class="mti">star</i> IM Datepicker</a></li>
+                </ul>
+              </li>
             </ul>
           </nav>
           <div class="menu-open-bar text-right show-md-under"><i class="mti">menu</i></div>
@@ -84,6 +90,7 @@
       <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/img-uploader"><i class="mti">star</i> IM ImgUploader</a></li>
       <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/autocomplete"><i class="mti">star</i> IM Autocomplete</a></li>
       <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=angular/datepicker"><i class="mti">star</i> IM Datepicker</a></li>
+      <li><a class="ripple" href="<?php echo $base; ?>angular.php?component=react/datepicker"><i class="mti">star</i> IM React Datepicker</a></li>
     </ul>
   </nav>
 </div>

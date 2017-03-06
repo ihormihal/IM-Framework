@@ -13,6 +13,7 @@
 		var dropdown = null; //current
 
 		function showIn(element) {
+			closeAll();
 			var animate = function() {
 				if (element.hasClass('focus')) {
 					element.addClass('in');

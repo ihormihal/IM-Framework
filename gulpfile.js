@@ -10,6 +10,11 @@ const gulp  = require('gulp'),
 	uglify    = require('gulp-uglifyjs'),
 	autoprefixer = require('gulp-autoprefixer');
 
+
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
+
 const srcDir  = 'design/source/';
 const vendorDir  = 'design/source/vendor/';
 const distDir = 'design/';
@@ -87,10 +92,23 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest(distDir+'css'));
 });
 
+gulp.task('build', function () {
+    return browserify({entries: './design/app_react/app.jsx', extensions: ['.jsx'], debug: true})
+        .transform('babelify', {
+        	presets: ['es2015', 'react'],
+        	plugins: ['transform-class-properties']
+        })
+        .bundle()
+        .pipe(source('build.js'))
+        .pipe(gulp.dest(distDir+'js'));
+});
+
+
 gulp.task('watch', function () {
 	gulp.watch(srcDir+'sass/**/*.scss', ['sass']);
 	gulp.watch(srcDir+'js/*.js', ['scripts']);
 	gulp.watch(srcDir+'libs/*.js', ['frameworkJs']);
+	gulp.watch('./design/app_react/**/*.jsx', ['build']); //react
 });
 
 gulp.task('default', ['jqueryDist','vendorCss','vendorJs','frameworkJs','scripts','sass']);

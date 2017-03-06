@@ -93,6 +93,10 @@
 		max-width: 100%;
 		padding-left: $gap*2;
 		padding-right: $gap*2;
+		.fullwidth {
+			margin-left: -$gap;
+			margin-right: -$gap;
+		}
 	}
 	&.full {
 		width: 100%;
@@ -199,6 +203,10 @@
 	.container.fit {
 		padding-left: $gap;
 		padding-right: $gap;
+		.fullwidth {
+			margin-left: -$gap;
+			margin-right: -$gap;
+		}
 	}
 }
 @include setForSmaller(xs);

@@ -7,7 +7,7 @@ $(document).on('click', '.menu-open-bar', function(event){
 	menu.toggleClass('opened');
 });
 
-$(document).on('click', function(event){
+$(document).on('click touchend', function(event){
 
 	var onMenuClick = false;
 	if(event.target.classList.contains('menu-slide') || event.target.classList.contains('menu-open-bar')){
