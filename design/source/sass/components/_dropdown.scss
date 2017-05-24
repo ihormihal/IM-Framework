@@ -11,32 +11,45 @@
 		overflow: hidden;
 		box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
 		animation: customFadeInUp 0.5s 1;
-		li {
+		&.collection-right {
+			left: inherit;
+			right: 0;
+		}
+		> li {
 			white-space: nowrap;
 			padding: 0;
-			a {
+			> a {
 				display: block;
 				color: inherit;
-				padding: 12px;
-				line-height: 1;
-				transition: background-color 0.3s ease;
-				&:after {
-					content: '';
+				// padding: 12px;
+				// line-height: 1;
+				// transition: background-color 0.3s ease;
+				// &:after {
+				// 	content: '';
+				// 	display: inline-block;
+				// 	float: right;
+				// 	width: 32px;
+				// 	font-family: FontAwesome;
+				// 	text-align: right;
+				// 	color: color(deep-orange);
+				// }
+			}
+			// &.active a:after {
+			// 	content: '\f00c';
+			// }
+		}
+		&.wide {
+			min-width: 320px;
+			> li {
+				white-space: normal;
+				> a {
 					display: inline-block;
-					float: right;
-					width: 32px;
-					font-family: FontAwesome;
-					text-align: right;
-					color: color(deep-orange);
 				}
 			}
-			&.active a:after {
-				content: '\f00c';
-			}
-			&:hover {
-				a {
-					background-color: color(lighten);
-				}
+		}
+		&.collection-padding {
+			> li {
+				padding: 8px;
 			}
 		}
 	}

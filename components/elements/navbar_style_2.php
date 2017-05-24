@@ -10,7 +10,7 @@
 
       <div class="col-lg-6 show-lg-over">
         <nav class="mt3">
-          <ul class="nav full nav-inline nav-col-land text-md-center">
+          <ul class="nav nav-inline">
             <li><a class="ripple" href="javascript:void(0)"><i class="mti">star</i> Lorem</a></li>
             <li><a class="ripple" href="javascript:void(0)"><i class="mti">star</i> Ipsum</a></li>
             <li><a class="ripple" href="javascript:void(0)"><i class="mti">star</i> Dolor</a></li>
@@ -27,10 +27,10 @@
         </div>
       </div>
 
-      <div class="col-sm-12 show-md-under grey-bg">
+      <!-- <div class="col-sm-12 show-md-under grey-bg">
         <div class="menu-open-bar right text-right"><i class="mti">menu</i></div>
         <div class="clear"></div>
-      </div>
+      </div> -->
 
     </div>
   </div>

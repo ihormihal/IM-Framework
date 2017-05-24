@@ -2,9 +2,11 @@
 	//скрываем для всех экранов
 	.show-#{$prefix}-over, .show-#{$prefix}-under {
 		display: none;
+		//height: 0; width: 0; visibility: hidden;
 	}
 	.hide-#{$prefix}-over, .hide-#{$prefix}-under {
 		display: block;
+		//height: auto; width: auto; visibility: visible;
 	}
 }
 //Для экранов больше префикса, больше - в приоритете
@@ -41,9 +43,8 @@
 	}
 	//скрываем для экранов меньше $prefix
 	.hide-#{$prefix}-over {
-		display: none;
+		display: none !important;
 	}
-
 	//обтекание для экранов больше $prefix
 	.left-#{$prefix} {
 		float: left;
@@ -60,7 +61,7 @@
 @mixin setForSmaller($prefix){
 	//скрываем для экранов больше $prefix
 	.hide-#{$prefix}-under {
-		display: none;
+		display: none !important;
 	}
 	//показываем для экранов больше $prefix
 	.show-#{$prefix}-under {
@@ -68,7 +69,7 @@
 	}
 
 	//центрируем блок для экранов меньше $prefix
-	.center-#{$prefix} {
+	.pull-#{$prefix}-center {
 		display: table;
 		margin-left: auto;
 		margin-right: auto;
@@ -210,5 +211,3 @@
 	}
 }
 @include setForSmaller(xs);
-
-

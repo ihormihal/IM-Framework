@@ -11,7 +11,7 @@
             <div class="h2">Navbar style #1</div>
         </div>
         <header>
-            <?php include 'components/elements/navbar_style_1.php'; ?>
+            <?php include 'components/elements/navbar_style_5.php'; ?>
         </header>
 
 
@@ -27,13 +27,6 @@
         </div>
         <header>
             <?php include 'components/elements/navbar_style_3.php'; ?>
-        </header>
-
-        <div class="container text-center pt2 pb2">
-            <div class="h2">Navbar style #4</div>
-        </div>
-        <header>
-            <?php include 'components/elements/navbar_style_4.php'; ?>
         </header>
 
     </body>

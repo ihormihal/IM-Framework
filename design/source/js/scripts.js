@@ -42,6 +42,56 @@ $(window).on('load', function(){
 // 	});
 // });
 
+var App = {
+	/* MOBILE MENU CONSTRUCTOR */
+	makeMobileMenu: function(navContainer){
+
+		var memuArray = [];
+		if(navContainer === null) return false;
+		var nav = navContainer.children[0];
+		for (var i = 0; i < nav.children.length; i++) {
+			var a = nav.children[i].children[0];
+			var lev1 = {
+				a: {
+					href: a.href,
+					text: a.innerHTML.trim()
+				},
+				children: []
+			};
+			if(nav.children[i].children.length > 1){
+				var ul = nav.children[i].children[1];
+				for (var j = 0; j < ul.children.length; j++) {
+					var a = ul.children[j].children[0];
+					lev1.children.push({
+						a: {
+							href: a.href,
+							text: a.innerHTML.trim()
+						}
+					});
+				}
+			}
+			memuArray.push(lev1);
+		}
+
+		var menuHTML = '';
+		for (var i = 0; i < memuArray.length; i++) {
+			menuHTML += '<li><a class="ripple" href="'+memuArray[i].a.href+'">'+memuArray[i].a.text+'</a>';
+			if(memuArray[i].children.length){
+				menuHTML += '<ul>';
+				for (var j = 0; j < memuArray[i].children.length; j++) {
+					menuHTML += '<li><a class="ripple" href="'+memuArray[i].children[j].a.href+'">'+memuArray[i].children[j].a.text+'</a>';
+				}
+				menuHTML += '</ul>';
+			}
+			menuHTML += '</li>';
+		}
+
+		var mobileMunu = document.createElement('div');
+		mobileMunu.innerHTML = '<div class="menu-slide slide-left white-bg"><nav><ul class="nav nav-col">'+menuHTML+'</ul></nav></div><div class="page-overlay"></div>';
+		document.body.appendChild(mobileMunu);
+	}
+};
+
 $(document).on('click', '.image-preview-box a', function(e) {
 	e.preventDefault();
 	var src = $(this).attr('href');
@@ -74,6 +124,8 @@ $(document).on('click', '.input-icon i', function(event) {
 });
 
 $(function() {
+
+	App.makeMobileMenu(document.getElementById('desktop-menu'));
 
 	//single gmap
 	$('.gmap.single').imGmapSingle();
@@ -244,27 +296,6 @@ $(document).on('click', '.accordion .title', function(event) {
 		row.addClass('active');
 	}
 });
-// $(document).on('click touchstart', '.aside-menu li.parent', function(e) {
-// 	e.stopPropagation();
-// 	//console.log(e.target.nodeName);
-// 	if (e.target.nodeName === 'A') {
-// 		var li = $(e.target).parent('li');
-// 		var ul = li.find('> ul');
-// 		if (ul.is(':visible')) {
-// 			ul.slideUp(250, function() {
-// 				li.removeClass('active');
-// 			});
-// 		} else {
-// 			ul.slideDown(250, function() {
-// 				li.addClass('active');
-// 			});
-// 		}
-// 	} else if (e.target.nodeName === 'SPAN' || e.target.nodeName === 'I'){
-// 		var url = $(e.target).parent('a').attr('href');
-// 		document.location.href = url;
-// 	}
-// });
-
 
 //Floating-label
 $(document).on('focusin', '.floating-label input, .floating-label textarea', function(){

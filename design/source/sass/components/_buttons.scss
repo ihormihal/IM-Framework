@@ -163,22 +163,6 @@ $btnBoxShadow_active: 1px 3px 3px rgba(0,0,0,0.4);
 	}
 }
 
-//SIZES
-.btn.btn-tr {
-	padding: ($controlMD - $textMD - 2px)/2 16px;
-}
-.btn-xs.btn-tr {
-	padding: ($controlXS - $textXS - 2px)/2 10px;
-}
-.btn-sm.btn-tr {
-	padding: ($controlSM - $textSM - 2px)/2 12px;
-}
-.btn-lg.btn-tr {
-	padding: ($controlLG - $textLG - 2px)/2 $controlLG;
-}
-.btn-xl.btn-tr {
-	padding: ($controlXL - $textXL - 2px)/2 $controlXL;
-}
 
 .floating-button {
     position: absolute;
@@ -189,24 +173,30 @@ $btnBoxShadow_active: 1px 3px 3px rgba(0,0,0,0.4);
     transform: translate(0,50%);
 }
 
-$colorFacebook: #3b5998;
-$colorInstagram: #e1306c;
-$colorVkontakte: #45668e;
-$colorLinkedIn: #0077b5;
-$colorTwitter: #1da1f2;
-$colorFoursquare: #f94877;
-$colorPinterest: #bd081c;
+.btn-circle {
+	display: inline-block;
+	padding: 0;
+	width: $controlMD;
+	height: $controlMD;
+	line-height: $controlMD + 4px;
+	text-align: center;
+	border-radius: 50%;
+	i {
+		margin: 0;
+		font-size: 16px;
+	}
+}
 
 .social-buttons {
+	list-style: none;
+	margin-left: 0;
+	li {
+		display: inline-block;
+	}
 	a {
+		@extend .btn-circle;
+		display: inline-block;
 		color: #fff;
-		padding: 0;
-		width: 36px;
-		height: 36px;
-		line-height: 36px;
-		i {
-			margin: 0;
-		}
 	}
 	.facebook {
 		background-color: $colorFacebook;

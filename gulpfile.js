@@ -62,6 +62,7 @@ gulp.task('vendorJs', function() {
     .pipe(gulp.dest(distDir+'js'));
 });
 
+
 gulp.task('frameworkJs', function() {
   return gulp.src(srcDir+'libs/+('+framework_libs.join('|')+').js')
     .pipe(concat('imf.min.js'))
@@ -76,6 +77,20 @@ gulp.task('scripts', function() {
 	.pipe(gulp.dest(distDir+'js'));
 });
 
+/*
+gulp.task('scripts', function() {
+	return gulp.src([
+		srcDir+'js/base/translations.js',
+		srcDir+'js/base/timeago.js',
+		srcDir+'js/modules/*.js',
+		srcDir+'js/scripts.js',
+		srcDir+'js/charts.js'
+	])
+	.pipe(concat('scripts.min.js'))
+	.pipe(uglify(''))
+	.pipe(gulp.dest(distDir+'js'));
+});
+*/
 
 
 gulp.task('vendor', ['jqueryDist','vendorCss','vendorJs']);
@@ -92,6 +107,7 @@ gulp.task('sass', function () {
 		.pipe(gulp.dest(distDir+'css'));
 });
 
+/*
 gulp.task('build', function () {
     return browserify({entries: './design/app_react/app.jsx', extensions: ['.jsx'], debug: true})
         .transform('babelify', {
@@ -102,13 +118,13 @@ gulp.task('build', function () {
         .pipe(source('build.js'))
         .pipe(gulp.dest(distDir+'js'));
 });
+*/
 
 
 gulp.task('watch', function () {
 	gulp.watch(srcDir+'sass/**/*.scss', ['sass']);
-	gulp.watch(srcDir+'js/*.js', ['scripts']);
-	gulp.watch(srcDir+'libs/*.js', ['frameworkJs']);
-	gulp.watch('./design/app_react/**/*.jsx', ['build']); //react
+	gulp.watch(srcDir+'js/**/.js', ['scripts']);
+	//gulp.watch('./design/app_react/**/*.jsx', ['build']); //react
 });
 
 gulp.task('default', ['jqueryDist','vendorCss','vendorJs','frameworkJs','scripts','sass']);
